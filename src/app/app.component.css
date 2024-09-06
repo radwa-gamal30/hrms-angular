@@ -1,0 +1,21 @@
+.mat-icon-button{
+    width: 50px;
+    height: 50px;
+    color: brown;
+    border: none;
+    background-color: transparent;
+}
+mat-sidenav{
+    margin-right: 20px;
+}
+mat-sidenav-container{
+    height: calc(100vh - 64px);
+    
+}
+mat-toolbar{
+    position: relative;
+    z-index: 5;
+}
+.content{
+    padding: 24px;
+}
