@@ -29,4 +29,8 @@ export class AttenedanceDepartureComponent {
     };
     type();
   }
+  printPage()
+  {
+    window.print();
+  }
 }
