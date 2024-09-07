@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
@@ -25,4 +25,6 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 })
 export class AppComponent {
   title = 'Front-End';
+  collapsed=signal(true);
+  sideNavWidth=computed(()=>this.collapsed() ? '0px': '250px');
 }
