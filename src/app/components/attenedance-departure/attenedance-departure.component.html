@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-11 main-data pt-3">
       <div class="logo">
-        <img src="logo.logo-removebg-preview.png" class="img-fluid rounded-start">
+        <img src="logo.png" class="img-fluid rounded-start">
       </div>
       <div class="title text-center pb-5">
         {{displayedText}}
@@ -24,8 +24,8 @@
             </div>
           </form>
           <div class="icons">
-            <i class="fa-solid fa-print me-2"></i>
-            <i class="fa-solid fa-file-pdf"></i>
+            <i class="fa-solid fa-print me-2 print" (click)="printPage()" mat-raised-button matTooltip="Print"></i>
+            <i class="fa-solid fa-file-pdf print" mat-raised-button matTooltip="View"></i>
           </div>
       </div>
       <div class="table-report mt-2">
