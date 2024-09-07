@@ -1,7 +1,9 @@
 <div class="mat-nav-list p-3">
-  <a class="mat-list-item mx-5" mat-list-item *ngFor="let menuItem of menuItems()" [routerLink]="menuItem.route" routerLinkActive="router-link-active" > 
+  <a class="mat-list-item mx-5" mat-list-item *ngFor="let menuItem of menuItems()" [routerLink]="menuItem.route" 
+  [routerLinkActive]="'text-info'"
+  [routerLinkActiveOptions]="{ exact: true }" > 
     <mat-icon class="icon mx-5">{{menuItem.icon}}</mat-icon>
-    <div class="label-span" ><span>{{menuItem.label}}</span></div>
+    <div class="label-span " ><span>{{menuItem.label}}</span></div>
   </a>
 
  

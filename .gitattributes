@@ -1,0 +1,7 @@
+# Set all text files to use LF on all systems
+* text=auto eol=lf
+
+# Force specific file types to always use LF
+*.html text eol=lf
+*.ts text eol=lf
+*.css text eol=lf
