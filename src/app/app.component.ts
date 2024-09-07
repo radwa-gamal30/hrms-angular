@@ -26,5 +26,5 @@ import { MatSidenavModule } from '@angular/material/sidenav'
 export class AppComponent {
   title = 'Front-End';
   collapsed=signal(true);
-  sideNavWidth=computed(()=>this.collapsed() ? '0px': '250px');
+  sideNavWidth=computed(()=>this.collapsed() ? '0px': '280px');
 }

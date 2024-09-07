@@ -24,6 +24,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+  
 menuItems = signal<SidenavIcons[]>([
   {icon:'dashboard',
     label:'DashBoard',
