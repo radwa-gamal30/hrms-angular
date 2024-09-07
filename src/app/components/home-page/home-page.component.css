@@ -1,0 +1,40 @@
+.container{
+
+    height: 70vh;
+}
+.card{
+    height: 20vh;
+    margin-bottom: 20px;
+    color: white;
+    background-color: #4883a3;;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:flex-end;
+}
+.admin-card{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+h3{
+
+    font-size:16px;
+    color: white;
+    font-weight: 600;
+    font-family: 'Open Sans',sans-serif;
+}
+mat-icon, fa-icon{
+    font-size: 52px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    color: white;
+    height: 50px;
+    width: 55px;
+}
+.label-card{
+    
+    padding: 0 12px 0 12px;
+}

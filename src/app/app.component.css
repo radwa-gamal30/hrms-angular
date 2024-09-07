@@ -4,15 +4,19 @@ mat-toolbar{
 }
 .menu-btn{
    
-    color:white;
+  display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
-    background-color: transparent;
+    outline: none;
     transition:  0.5 ease-in;
 }
-
-.menu-btn:hover{
-    color: whitesmoke;
- 
+mat-icon{
+    margin-top: 5px;
+    font-size: 30px;
+   width: 50px;
+   height: 40px;  
+   color:white;
 }
 
 mat-sidenav{

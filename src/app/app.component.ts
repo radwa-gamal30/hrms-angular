@@ -6,7 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav'
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @Component({
   selector: 'app-root',
@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav'
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
+    FontAwesomeModule,
     SidebarComponent,
 ],
   templateUrl: './app.component.html',
@@ -27,4 +28,5 @@ export class AppComponent {
   title = 'Front-End';
   collapsed=signal(true);
   sideNavWidth=computed(()=>this.collapsed() ? '0px': '280px');
+  
 }
