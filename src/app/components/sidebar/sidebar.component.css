@@ -37,3 +37,6 @@
 .hide-title{
     opacity:0 ;
 }
+.active-link .mat-icon {
+    color: darkslategrey; 
+  }
