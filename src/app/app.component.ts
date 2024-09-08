@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SalaryReportComponent } from './components/salary-report/salary-report.component';
 import { AttenedanceDepartureComponent } from "./components/attenedance-departure/attenedance-departure.component";
+import { EditAttendaceComponent } from "./components/edit-attendace/edit-attendace.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LoginComponent, SalaryReportComponent, AttenedanceDepartureComponent],
+  imports: [RouterOutlet, LoginComponent, SalaryReportComponent, AttenedanceDepartureComponent, EditAttendaceComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
