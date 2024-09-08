@@ -4,7 +4,7 @@
   [routerLink]="menuItem.route"
   routerLinkActive="active-link"
   > 
-    <mat-icon class="icon mx-5" *ngIf="!sideNavCollaps() && sideNavMargin()">{{menuItem.icon}}</mat-icon>
+    <mat-icon class="icon mx-5">{{menuItem.icon}}</mat-icon>
     <div class="label-span " [class.hide-title]="sideNavCollaps()"><span>{{menuItem.label}}</span></div>
   </a>
 

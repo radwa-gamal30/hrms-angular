@@ -1,6 +1,8 @@
 
 mat-toolbar{
     background-color: #28688B;
+    position: relative;
+    z-index: 5;
 }
 .menu-btn{
    
@@ -9,7 +11,7 @@ mat-toolbar{
     justify-content: center;
     border: none;
     outline: none;
-    transition:  0.5 ease-in;
+
 }
 mat-icon{
     margin-top: 5px;
@@ -20,16 +22,18 @@ mat-icon{
 }
 
 mat-sidenav{
-    margin-right: 20px;
+    margin: 0;
+    padding: 0;
+    margin-right: 10px;
 }
 mat-sidenav-container{
     height: calc(100vh - 64px);
     
 }
-mat-toolbar{
-    position: relative;
-    z-index: 5;
-}
+
 .content{
-    padding: 24px;
+    padding: 16px;/
+}
+mat-sidenav, mat-sidenav-content{
+    transition: all 500ms ease-in-out;
 }

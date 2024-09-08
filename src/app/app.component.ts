@@ -27,6 +27,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 export class AppComponent {
   title = 'Front-End';
   collapsed=signal(false);
-  sideNavWidth=computed(()=>this.collapsed() ? '65px': '250px');
+  sideNavWidth=computed(()=>this.collapsed() ? '0px': '250px');
   
 }
