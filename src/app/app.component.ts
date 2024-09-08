@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +38,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 export class AppComponent {
   title = 'Front-End';
   collapsed=signal(false);
-  sideNavWidth=computed(()=>this.collapsed() ? '65px': '250px');
+  sideNavWidth=computed(()=>this.collapsed() ? '0px': '250px');
   
 }
