@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { AddGroupComponent } from './components/add-group/add-group.component';
 import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
 import { AddUser1Component } from './components/add-user1/add-user1.component';
@@ -22,4 +23,4 @@ export const routes: Routes = [
      {path:'login',component:LoginComponent,title:'Login'},
      {path:'salaryreport',component:SalaryReportComponent,title:'salasryReport'},
      {path:'**', component: HomePageComponent, title:'Page Not Found'}
-];
+]

@@ -1,3 +1,4 @@
+
 import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -11,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 @Component({
   selector: 'app-root',
   standalone: true,
+
   imports: [
     RouterOutlet,
     CommonModule,
@@ -21,12 +23,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     FontAwesomeModule,
     SidebarComponent,
 ],
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Front-End';
   collapsed=signal(false);
-  sideNavWidth=computed(()=>this.collapsed() ? '0px': '250px');
+  sideNavWidth=computed(()=>this.collapsed() ? '65px': '250px');
   
 }
