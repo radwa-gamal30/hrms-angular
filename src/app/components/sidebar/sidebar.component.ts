@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, Input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SidenavIcons } from '../../sidenav-icons';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,7 +24,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  
+  sideNavCollaps=signal(false);
+  @Input() set collapsed(val:boolean){
+    this.sideNavCollaps.set(val);
+  }
+  sideNavMargin=computed(()=> this.sideNavCollaps()? '0' :  '50px');
+
 menuItems = signal<SidenavIcons[]>([
   {icon:'dashboard',
     label:'DashBoard',

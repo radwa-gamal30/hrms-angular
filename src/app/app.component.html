@@ -6,7 +6,7 @@
 
 <mat-sidenav-container class="">
   <mat-sidenav opened mode="side" [style.width]="sideNavWidth()">
-    <app-sidebar class="w-100"></app-sidebar>
+    <app-sidebar [collapsed]="collapsed()"></app-sidebar>
   </mat-sidenav> 
 
   <mat-sidenav-content class="content" [style.margin-left]="sideNavWidth()">

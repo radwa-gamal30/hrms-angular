@@ -1,9 +1,9 @@
-<div class="mat-nav-list p-3">
+<div class="mat-nav-list">
   <a class="mat-list-item mx-5" mat-list-item *ngFor="let menuItem of menuItems()" [routerLink]="menuItem.route" 
-  [routerLinkActive]="'text-info'"
-  [routerLinkActiveOptions]="{ exact: true }" > 
-    <mat-icon class="icon mx-5">{{menuItem.icon}}</mat-icon>
-    <div class="label-span " ><span>{{menuItem.label}}</span></div>
+  [routerLinkActive]="'text-danger'"
+> 
+    <mat-icon class="icon mx-5" *ngIf="!sideNavCollaps() && sideNavMargin()">{{menuItem.icon}}</mat-icon>
+    <div class="label-span " [class.hide-title]="sideNavCollaps()"><span>{{menuItem.label}}</span></div>
   </a>
 
  
