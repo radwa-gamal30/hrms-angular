@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './add-user2.component.css'
 })
 export class AddUser2Component {
+  logoSrc:string='./assets/images/pioneerslogo(1).png';
 
 }

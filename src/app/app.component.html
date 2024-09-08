@@ -1,2 +1,15 @@
-<router-outlet></router-outlet>
-<!-- <app-edit-attendace></app-edit-attendace> -->
+<mat-toolbar class=" mat-toolbar mat-elevation-z3">
+  <button mat-icon-button class="menu-btn" (click)="collapsed.set(!collapsed())">  <mat-icon>menu</mat-icon>
+</button>
+</mat-toolbar>
+
+<mat-sidenav-container class="">
+  <mat-sidenav opened mode="side" [style.width]="sideNavWidth()">
+    <app-sidebar [collapsed]="collapsed()"></app-sidebar>
+  </mat-sidenav> 
+
+  <mat-sidenav-content class="content" [style.margin-left]="sideNavWidth()">
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+</mat-sidenav-container>
+
