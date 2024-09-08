@@ -1,1 +1,47 @@
-<p>home-page works!</p>
+<div class="container mt-5 text-light">
+
+    <div class="row pt-3">
+        <div class="col-md-6">
+            <div class="card admin-card" [style.height]="'65px'">
+                <h3 class="me-5">Admin Board</h3>
+            </div>
+        </div>
+      
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-6">
+            <div class="card" [style.background-color]="'#EBBA1B'">
+                <fa-icon class="col-md-6" [icon]="userGroupIcon"></fa-icon>
+                <p class="label-card fs-3 col-md-4">All Employees </p>
+                <p class="total-card fs-2 col-md-2"> 200</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card" >
+                <fa-icon class="col-md-6" [icon]="doorOpenIcon"></fa-icon>
+                <p class="label-card fs-3 col-md-4">Visits</p>
+                <p class="total-card fs-2 col-md-2"> 50</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row pt-3">
+        <div class="col-md-6">
+            <div class="card">
+                <mat-icon class="col-md-6"></mat-icon>
+                <fa-icon class="col-md-6" [icon]="usersLineIcon"></fa-icon>
+
+                <p class="label-card fs-3 col-md-4">Groups </p>
+                <p class="total-card fs-2 col-md-2"> 12</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card" [style.background-color]="'#225470'">
+                <fa-icon class="col-md-6" [icon]="fileInvoice"></fa-icon>
+                <p class="label-card fs-3 col-md-4">Reports</p>
+                <p class="total-card fs-2 col-md-2"> 153</p>
+            </div>
+        </div>
+    </div>
+</div>

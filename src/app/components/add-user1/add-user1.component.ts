@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './add-user1.component.css'
 })
 export class AddUser1Component {
-
+  logoSrc:string='./assets/images/pioneerslogo(1).png';
 }
