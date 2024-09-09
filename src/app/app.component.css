@@ -27,6 +27,7 @@ mat-sidenav{
     margin-right: 10px;
 }
 mat-sidenav-container{
+    font-family: 'Open Sans',sans-serif;
     height: calc(100vh - 64px);
     
 }
@@ -36,4 +37,25 @@ mat-sidenav-container{
 }
 mat-sidenav, mat-sidenav-content{
     transition: all 500ms ease-in-out;
+}
+.login-btn{
+    border: 1px solid #FFF;
+    font-size: 18px;
+    width: 85px;
+    height: 40px; 
+  
+    border-radius: 10px;
+    color: #FFF;
+    background-color: transparent;
+    transition: all 0.2s ease-in-out;
+   
+
+}
+.login-btn:hover{
+    border: none;
+    color: black;
+
+}
+.user{
+    color: #fff;
 }

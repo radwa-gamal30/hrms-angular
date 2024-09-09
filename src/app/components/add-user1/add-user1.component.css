@@ -1,6 +1,4 @@
-*{
-    font-family: "Open Sans", sans-serif;
-}
+
 .form-container{
     margin-left: 250px;
     display: flex;
@@ -19,7 +17,7 @@
 }
  h1{
     margin-top: 10px;
-    margin-bottom: 90px;
+    margin-bottom: 85px;
 }
 
 .companylogo{
@@ -37,11 +35,12 @@ label{
 input, select, button{
     height: 40px;
 }
+
 button{
-    margin-top: 30px;
     color: white;
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
     border-color: white;
+    
   
 }

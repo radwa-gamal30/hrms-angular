@@ -1,6 +1,4 @@
-*{
-    font-family: "Open Sans", sans-serif;
-}
+
 .form-container{
     margin-left: 250px;
     display: flex;
@@ -38,9 +36,9 @@ input, select, button{
     height: 40px;
 }
 button{
+    font-size: 20px;
+    font-weight: 400;
     color: white;
-    font-size: 24px;
-    font-weight: 500;
     border-color: white;
   
 }

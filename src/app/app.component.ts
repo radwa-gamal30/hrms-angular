@@ -1,6 +1,6 @@
 
 import { Component, computed, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SalaryReportComponent } from './components/salary-report/salary-report.component';
 import { AttenedanceDepartureComponent } from "./components/attenedance-departure/attenedance-departure.component";
@@ -18,6 +18,7 @@ import { LoginComponent } from './components/login/login.component';
   standalone: true,
 
   imports: [
+    RouterModule,
     RouterOutlet,
     CommonModule,
     MatToolbarModule,
