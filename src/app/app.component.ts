@@ -9,6 +9,9 @@ import { AddHolidayComponent } from './components/add-holiday/add-holiday.compon
 import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SalaryReportComponent } from './components/salary-report/salary-report.component';
+import { AttenedanceDepartureComponent } from "./components/attenedance-departure/attenedance-departure.component";
+import { EditAttendaceComponent } from "./components/edit-attendace/edit-attendace.component";
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +35,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     MatSidenavModule,
     FontAwesomeModule,
     SidebarComponent,
+    LoginComponent,
+    SalaryReportComponent,
+    AttenedanceDepartureComponent,
+    EditAttendaceComponent
 ],
 
 >>>>>>> b9204c162b720f8a0420ab3e6e662b624338bde1
