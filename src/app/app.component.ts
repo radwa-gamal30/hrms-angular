@@ -1,6 +1,7 @@
+import { routes } from './app.routes';
 
 import { Component, computed, signal } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SalaryReportComponent } from './components/salary-report/salary-report.component';
 import { AttenedanceDepartureComponent } from "./components/attenedance-departure/attenedance-departure.component";
@@ -37,8 +38,12 @@ import { LoginComponent } from './components/login/login.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Front-End';
+  constructor(private router:Router){}
+
+  isLogin():boolean{
+    return this.router.url === 'login';
+  }
   collapsed=signal(false);
-  sideNavWidth=computed(()=>this.collapsed() ? '0px': '250px');
+  sideNavWidth=computed(()=>this.collapsed() ? '64px': '250px');
   
 }

@@ -11,7 +11,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container class="">
-  <mat-sidenav opened mode="side" [style.width]="sideNavWidth()">
+  <mat-sidenav opened mode="side" [style.width]="sideNavWidth()" *ngIf="!isLogin()">
     <app-sidebar [collapsed]="collapsed()"></app-sidebar>
   </mat-sidenav> 
 
