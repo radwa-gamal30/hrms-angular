@@ -20,9 +20,7 @@ export const routes: Routes = [
     {path:'addemployee',component:AddUser2Component,title:'Add Employee'},
     {path:'generalsettings',component:GeneralSettingsComponent,title:'General Settings'},
     {path: 'addholiday',component: AddHolidayComponent, title:'Add Holiday'},
-    {path:'attendance-departure',component:AttenedanceDepartureComponent,title:'Attendance Reports'},
-    {path:'login',component:LoginComponent,title:'Login'},
-    {path:'salaryreport',component:SalaryReportComponent,title:'salasryReport'},
-    {path:'editAttendance',component:EditAttendaceComponent},
-    {path:'editReport',component:EditReportComponent}
-    {path:'**', component: HomePageComponent, title:'Page Not Found'}
+     {path:'attendance-departure',component:AttenedanceDepartureComponent,title:'Attendance Reports'},
+     {path:'login',component:LoginComponent,title:'Login'},
+     {path:'salaryreport',component:SalaryReportComponent,title:'salasryReport'},
+     {path:'**', component: HomePageComponent, title:'Page Not Found'} ]

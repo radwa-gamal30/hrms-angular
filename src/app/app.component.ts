@@ -1,13 +1,14 @@
-<<<<<<< HEAD
+
+import { routes } from './app.routes';
+
 import { GeneralSettingsComponent } from './components/general-settings/general-settings.component';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
-=======
->>>>>>> b9204c162b720f8a0420ab3e6e662b624338bde1
+
 
 import { Component, computed, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SalaryReportComponent } from './components/salary-report/salary-report.component';
 import { AttenedanceDepartureComponent } from "./components/attenedance-departure/attenedance-departure.component";
@@ -18,15 +19,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-<<<<<<< HEAD
-  imports: [RouterOutlet , GeneralSettingsComponent,AddHolidayComponent],
-=======
+
 
   imports: [
+    RouterModule,
     RouterOutlet,
     CommonModule,
     MatToolbarModule,
@@ -37,19 +38,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     SidebarComponent,
     LoginComponent,
     SalaryReportComponent,
-    AttenedanceDepartureComponent,
-    EditAttendaceComponent
+    AttenedanceDepartureComponent, GeneralSettingsComponent,
+    EditAttendaceComponent,AddHolidayComponent
 ],
 
->>>>>>> b9204c162b720f8a0420ab3e6e662b624338bde1
+
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Front-End';
+  constructor(private router:Router){}
+
+  isLogin():boolean{
+    return this.router.url === 'login';
+  }
   collapsed=signal(false);
-  sideNavWidth=computed(()=>this.collapsed() ? '65px': '250px');
- 
-
-
+  sideNavWidth=computed(()=>this.collapsed() ? '64px': '250px');
+  
 }
