@@ -1,4 +1,11 @@
+
 import { routes } from './app.routes';
+
+import { GeneralSettingsComponent } from './components/general-settings/general-settings.component';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
+
 
 import { Component, computed, signal } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
@@ -18,6 +25,7 @@ import { LoginComponent } from './components/login/login.component';
   selector: 'app-root',
   standalone: true,
 
+
   imports: [
     RouterModule,
     RouterOutlet,
@@ -30,9 +38,10 @@ import { LoginComponent } from './components/login/login.component';
     SidebarComponent,
     LoginComponent,
     SalaryReportComponent,
-    AttenedanceDepartureComponent,
-    EditAttendaceComponent
+    AttenedanceDepartureComponent, GeneralSettingsComponent,
+    EditAttendaceComponent,AddHolidayComponent
 ],
+
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
