@@ -1,0 +1,38 @@
+<div class="row w-100">
+    <div class="col-md-11 main-data pt-3">
+        <div class="card-title d-flex justify-content-between align-items-center"> <div class="logo m-0"><img src="logo.png" class="img-fluid rounded-start">
+        </div>  <a class="nav-a" [routerLink]="['homepage']" routerLinkActive="''" >
+            <button class="btn-back">back</button></a>
+       </div>
+       
+        <div class="title text-center pb-3">
+          Add Attendance
+        </div>
+          <div class="mt-2 pb-5">
+            <form action="" method="" class="m-auto rounded p-5">
+                <div class="mb-3">
+                    <label for="employee_name" class="form-label text-white mb-0">employee Name</label>
+                    <input type="text" class="form-control"  [(ngModel)]="employee_name" name="employee_name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="department_name" class="form-label text-white mb-0">department Name</label>
+                    <input type="text" class="form-control"  [(ngModel)]="department_name" name="department_name">
+                  </div>
+              <div class="mb-3">
+                <label for="attedanceTime" class="form-label text-white mb-0">Attedance Time</label>
+                <input type="time" class="form-control"  [(ngModel)]="attedanceTime" name="attedanceTime">
+              </div>
+              <div class="mb-3">
+                <label for="departureTime" class="form-label text-white mb-0">Departure Time</label>
+                <input type="time" class="form-control" [(ngModel)]="departureTime" name="departureTime">
+              </div>
+              <div class="mb-3">
+                <label for="attendanceDate" class="form-label text-white mb-0">Attendance Date</label>
+                <input type="date" class="form-control" id="attendanceDate">
+              </div>
+              <button type="submit" class="btn w-50 m-auto d-block text-white">Add</button>
+            </form>
+          </div>
+        </div>
+  </div>
+  
