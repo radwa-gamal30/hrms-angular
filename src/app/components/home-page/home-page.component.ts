@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
 import {MatTableModule,MatTableDataSource}from '@angular/material/table'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { faFileInvoice } from '@fortawesome/free-solid-svg-icons';
 import { faUserGroup } from '@fortawesome/free-solid-svg-icons';
 import { faUsersLine } from '@fortawesome/free-solid-svg-icons';
+import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
 
 export interface PeriodicElement {
   name: string;
@@ -40,7 +43,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
   imports: [MatIconModule,
     MatButtonModule,
     FontAwesomeModule,
-   MatTableModule
+   MatTableModule,
+   MatInputModule,
+   MatCardModule,
+   CommonModule
   ],
 })
 export class HomePageComponent {
@@ -50,6 +56,10 @@ export class HomePageComponent {
   usersLineIcon=faUsersLine;
  
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  clickedRows = new Set<PeriodicElement>();
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

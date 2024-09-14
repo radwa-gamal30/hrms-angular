@@ -13,6 +13,7 @@
     flex-direction: row;
     align-items: center;
     justify-content:flex-end;
+     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .admin-card{
     padding-right: 5px;
@@ -34,27 +35,18 @@ mat-icon, fa-icon{
     height: 50px;
     width: 55px;
 }
-.label-card{
-    
-    padding: 5px 8px 0 8px;
-    font-size:18px ;
-}
+
 
 /* table css */
-.demo-table {
-  margin-top: 100px;
+table {
+  width: 100%;
   }
   
-  .mat-mdc-row .mat-mdc-cell {
-    border-bottom: 1px solid transparent;
-    border-top: 1px solid transparent;
-    cursor: pointer;
+  .table-row{
+    margin-top: 150px;
   }
-  
-  .mat-mdc-row:hover .mat-mdc-cell {
-    border-color: currentColor;
-  }
-  
-  .demo-row-is-clicked {
-    font-weight: bold;
-  }
+ 
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
