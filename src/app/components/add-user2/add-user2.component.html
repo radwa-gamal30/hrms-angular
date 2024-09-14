@@ -1,7 +1,10 @@
-<div class="companylogo container mx-5 pt-2"><img class="w-100" [src]="logoSrc"></div>
-<div class=" form-container">
-    <form>
-        <h1 class="text-light text-center fs-2">New Employee</h1>
+<div class="container">
+  <div class="logo pb-5">
+    <img src="logo.png" class="img-fluid rounded-start">
+  </div>
+  <div class=" form-container m-auto">
+    <form class="">
+        <h1 class="text-light text-center fs-2">{{displayedText}}</h1>
         <div class="row m-5">
             <div class="form-group col-md-6">
           <label for="name" class="text-light">Name</label>
@@ -39,7 +42,7 @@
                 <option value="">select gender...</option>
                 <option value="male">male</option>
                 <option value="female">female</option>
-            </select> 
+            </select>
           </div>
           <div class="form-group col-md-6">
             <label for="salary" class="text-light">Salary</label>
@@ -61,9 +64,11 @@
             <input type="time" class="form-control" id="departure" placeholder="....">
           </div>
     </div>
-    
-       
+
+
        <div class="row" [style.margin-left]="'220px'"><button type="submit" class="mx-5 w-50 btn">save</button></div>
-     
+
       </form>
+</div>
+
 </div>

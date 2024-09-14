@@ -2,8 +2,16 @@
 
     height: 70vh;
 }
+.logo
+{
+  width: 20%;
+}
+.title
+{
+  font-size: 2rem;
+  text-transform: capitalize;
+}
 .card{
-    height: 10vh;
     margin-bottom: 20px;
     color: white;
     background-color: #4883a3;;
@@ -12,13 +20,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:flex-end;
+    justify-content:center;
      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.card-head
+{
+  font-weight: bold !important;
+  font-size: 1rem;
 }
 .admin-card{
     padding-right: 5px;
-    
-
 }
 h3{
 
@@ -41,11 +52,11 @@ mat-icon, fa-icon{
 table {
   width: 100%;
   }
-  
+
   .table-row{
     margin-top: 150px;
   }
- 
+
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;

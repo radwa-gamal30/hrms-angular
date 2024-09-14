@@ -34,7 +34,6 @@ import { LoginComponent } from './components/login/login.component';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    FontAwesomeModule,
     SidebarComponent,
     LoginComponent,
     SalaryReportComponent,
@@ -54,5 +53,5 @@ export class AppComponent {
   }
   collapsed=signal(false);
   sideNavWidth=computed(()=>this.collapsed() ? '64px': '250px');
-  
+
 }

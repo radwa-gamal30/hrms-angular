@@ -54,12 +54,32 @@ export class HomePageComponent {
   fileInvoice=faFileInvoice;
   userGroupIcon=faUserGroup;
   usersLineIcon=faUsersLine;
- 
+  fullText: string = 'Admin Board';
+  displayedText: string = '';
+  typingSpeed: number = 100; // Speed of typing in milliseconds
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+
+  ngOnInit(): void {
+    this.typeWriter();
+  }
+
+  typeWriter(): void {
+    let i = 0;
+    const type = () => {
+      if (i < this.fullText.length) {
+        this.displayedText += this.fullText.charAt(i);
+        i++;
+        setTimeout(type, this.typingSpeed); // Adjust typing speed here
+      }
+    };
+    type();
   }
 }
