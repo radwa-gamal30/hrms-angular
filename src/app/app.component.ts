@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -27,9 +28,11 @@ import { LoginComponent } from './components/login/login.component';
 
 
   imports: [
+
     RouterModule,
     RouterOutlet,
     CommonModule,
+    FormsModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -38,7 +41,8 @@ import { LoginComponent } from './components/login/login.component';
     SidebarComponent,
     LoginComponent,
     SalaryReportComponent,
-    AttenedanceDepartureComponent, GeneralSettingsComponent,
+    AttenedanceDepartureComponent,
+    GeneralSettingsComponent,
     EditAttendaceComponent,AddHolidayComponent
 ],
 

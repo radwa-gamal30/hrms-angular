@@ -37,6 +37,7 @@ input, select, button{
 }
 
 button{
+    padding-bottom: 35px;
     color: white;
     font-size: 20px;
     font-weight: 400;
