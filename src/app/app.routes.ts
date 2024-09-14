@@ -24,5 +24,6 @@ export const routes: Routes = [
     {path:'login',component:LoginComponent,title:'Login'},
     {path:'salaryreport',component:SalaryReportComponent,title:'salasryReport'},
     {path:'editAttendance',component:EditAttendaceComponent},
-    {path:'editReport',component:EditReportComponent}
+    {path:'editReport',component:EditReportComponent},
     {path:'**', component: HomePageComponent, title:'Page Not Found'}
+]

@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import { GeneralSettingsComponent } from './components/general-settings/general-settings.component';
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
-=======
->>>>>>> b9204c162b720f8a0420ab3e6e662b624338bde1
-
 import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -16,15 +8,16 @@ import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav'
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { GeneralSettingsComponent } from './components/general-settings/general-settings.component';
+import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
+import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-<<<<<<< HEAD
-  imports: [RouterOutlet , GeneralSettingsComponent,AddHolidayComponent],
-=======
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
 
   imports: [
     RouterOutlet,
@@ -33,23 +26,22 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    FontAwesomeModule,
     SidebarComponent,
     LoginComponent,
     SalaryReportComponent,
     AttenedanceDepartureComponent,
-    EditAttendaceComponent
+    EditAttendaceComponent,
+    GeneralSettingsComponent,
+    AddHolidayComponent
 ],
 
->>>>>>> b9204c162b720f8a0420ab3e6e662b624338bde1
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+
 })
 export class AppComponent {
   title = 'Front-End';
   collapsed=signal(false);
   sideNavWidth=computed(()=>this.collapsed() ? '65px': '250px');
- 
+
 
 
 }
