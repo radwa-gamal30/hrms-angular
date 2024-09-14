@@ -1,46 +1,89 @@
 <div class="container mt-2 text-light">
 
     <div class="row pt-1 me-5">
-        <div class="col-md-2 ">
-            <div class="card admin-card" [style.height]="'65px'">
-                <h3>Admin Board</h3>
+                <p class="fs-2 mb-5 ms-auto"  [style.color]="'#4883a3'" >Admin Board</p>
+    </div>
+    <div class="row pt-2">
+         <div class="col-md-3">
+            <div class="card p-3" [style.background-color]="'#FFCC6F'">
+                
+                <mat-card-header class="ms-auto"><fa-icon class="" [icon]="userGroupIcon"></fa-icon ></mat-card-header>
+                <mat-card-content class="mx-auto "><p class="fs-7 d-flex-block">All Employees </p><p class="fs-2 d-flex-block">200</p></mat-card-content>
             </div>
         </div>
+
+        <div class="col-md-3">
+            <div class="card p-3" >
+                
+                <mat-card-header class="ms-auto"><fa-icon class="" [icon]="doorOpenIcon"></fa-icon></mat-card-header>
+                <mat-card-content class="mx-auto "><p class="fs-7 d-flex-block">Visits</p><p class="fs-2 d-flex-block">50</p></mat-card-content>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3" [style.background-color]="'#225470'">
+                
+                <mat-card-header class="ms-auto"><fa-icon class="" [icon]="usersLineIcon"></fa-icon></mat-card-header>
+                <mat-card-content class="mx-auto "><p class="fs-7 d-flex-block">Groups</p><p class="fs-2 d-flex-block">12</p></mat-card-content>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card p-3" >
+                
+                <mat-card-header class="ms-auto"><fa-icon class="" [icon]="fileInvoice"></fa-icon></mat-card-header>
+                <mat-card-content class="mx-auto "><p class="fs-7 d-flex-block">Reports</p><p class="fs-2 d-flex-block">153</p></mat-card-content>
+                <!-- <p >Reports</p> -->
+        
+            </div>
+        </div>
+
+    </div>
+
+<!-- table of employees -->
+    <div class="row table-row">
       
-    </div>
-    <div class="row pt-2">
-        <div class="col-md-3">
-            <div class="card" [style.background-color]="'#EBBA1B'">
-                <fa-icon class="col-md-4" [icon]="userGroupIcon"></fa-icon>
-                <p class="label-card col-md-5">All Employees </p>
-                <p class="total-card fs-3 col-md-3"> 200</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" >
-                <fa-icon class="col-md-4" [icon]="doorOpenIcon"></fa-icon>
-                <p class="label-card  col-md-5">Visits</p>
-                <p class="total-card fs-3 col-md-3"> 50</p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="row pt-2">
-        <div class="col-md-3">
-            <div class="card">
-                <fa-icon class="col-md-4" [icon]="usersLineIcon"></fa-icon>
-
-                <p class="label-card  col-md-5">Groups </p>
-                <p class="total-card fs-3 col-md-3"> 12</p>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card" [style.background-color]="'#225470'">
-                <fa-icon class="col-md-4" [icon]="fileInvoice"></fa-icon>
-                <p class="label-card  col-md-5">Reports</p>
-                <p class="total-card fs-3 col-md-3"> 153</p>
-            </div>
-        </div>
-    </div>
+        <mat-label class="fs-5 mb-3 ms-auto"  [style.color]="'#4883a3'" >employees</mat-label>
+              <div [ngStyle]="{'background-color':'white'}"><mat-form-field>
+                 <div [ngStyle]="{'color':'#4883a3'}"> <mat-label >Filter</mat-label></div>
+                  
+                  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+                </mat-form-field></div>  
+                
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                  </ng-container>
+                
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  </ng-container>
+                
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="weight">
+                    <th mat-header-cell *matHeaderCellDef> Weight </th>
+                    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                  </ng-container>
+                
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="symbol">
+                    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                  </ng-container>
+                
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                
+                  <!-- Row shown when there is no matching data. -->
+                  <tr class="mat-row" *matNoDataRow>
+                    <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                  </tr>
+                </table>
+                
+    </div>  
 </div>
