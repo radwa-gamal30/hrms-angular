@@ -1,3 +1,8 @@
+.col-8, .card{
+    background-color: transparent;
+    border: none;
+}
+
 
 .form-container{
     margin-left: 250px;
@@ -20,12 +25,27 @@
     margin-bottom: 85px;
 }
 
-.companylogo{
+
+.logo
+{
     margin-left: 200px;
     height: 100px;
     width: 200px;
 }
-
+.btn-back{
+    border: 1px solid #FFF;
+    font-size: 18px;
+    width: 85px;
+    height: 40px; 
+  background-color:transparent;
+    border-radius: 10px;
+    border-color: #28688B;
+    color: black;
+    transition: all 0.2s ease-in-out;
+}
+.btn-back:hover{
+        border: none;
+}
 
 label{
     font-size: 24px;

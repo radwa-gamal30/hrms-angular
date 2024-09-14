@@ -5,6 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule, NgStyle } from '@angular/common';
 import { group } from '@angular/animations';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-add-user1',
@@ -13,7 +14,8 @@ import { group } from '@angular/animations';
     FormsModule,
     MatInputModule,
     MatSelectModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   templateUrl: './add-user1.component.html',
   styleUrl: './add-user1.component.css'
