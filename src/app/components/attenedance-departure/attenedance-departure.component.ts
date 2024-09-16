@@ -8,12 +8,13 @@ import {MatTableDataSource, MatTableModule}from '@angular/material/table'
 import { MatPaginatorModule,MatPaginator } from '@angular/material/paginator';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
+import { LoaderComponent } from "../loader/loader.component";
 
 
 @Component({
   selector: 'app-attenedance-departure',
   standalone: true,
-  imports: [RouterModule,MatPaginatorModule,MatTableModule,SidebarComponent,MatTooltipModule,CommonModule,MatCardModule,FontAwesomeModule],
+  imports: [RouterModule, MatPaginatorModule, MatTableModule, SidebarComponent, MatTooltipModule, CommonModule, MatCardModule, FontAwesomeModule, LoaderComponent],
   templateUrl: './attenedance-departure.component.html',
   styleUrl: './attenedance-departure.component.css'
 })
@@ -21,7 +22,7 @@ export class AttenedanceDepartureComponent {
   attendance!:AttendanceResponse[];
   dataSource = new MatTableDataSource<AttendanceResponse>([]);
   onboard:any='./assets/images/onboard(1).png';
-
+  isLoading: boolean=false;
   displayedColumns: string[] = ['id','employee_name', 'department_name', 'check_in', 'check_out','date','hours', 'status'];
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -32,11 +33,12 @@ export class AttenedanceDepartureComponent {
     this.dataSource.paginator = this.paginator;
   }
   getAttendnaceList(){
+    this.isLoading=true;
     this.attendanceService.getList().subscribe((res:any)=>{
         // console.log(res);
         this.attendance = res.data;
         this.dataSource.data = this.attendance;
-        
+        this.isLoading=false;
       });
   }
 

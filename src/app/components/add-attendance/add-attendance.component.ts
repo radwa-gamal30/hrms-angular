@@ -30,6 +30,7 @@ ngOnInit(){
   this.loadEmployees();
 }
 loadEmployees(){
+  this.isLoading=true;
   this.attendanceService.getEmployees()
     .subscribe({
       next: (em:any) => {
