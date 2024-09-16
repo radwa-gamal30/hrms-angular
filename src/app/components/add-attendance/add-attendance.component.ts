@@ -65,6 +65,7 @@ submitAttendance() {
       this.attedanceTime='';
       this.departureTime='';
       this.attendanceDate=new Date();
+      
       this.isLoading=false;
 
 

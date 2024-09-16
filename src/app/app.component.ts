@@ -2,12 +2,8 @@
 import { routes } from './app.routes';
 
 import { GeneralSettingsComponent } from './components/general-settings/general-settings.component';
-import { Component } from '@angular/core';
-
+import { Component ,computed, signal} from '@angular/core';
 import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
-
-
-import { computed, signal } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SalaryReportComponent } from './components/salary-report/salary-report.component';
@@ -29,20 +25,12 @@ import { FormsModule } from '@angular/forms';
 
   imports: [
 
-    RouterModule,
-    RouterOutlet,
-    CommonModule,
-    FormsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatSidenavModule,
-    FontAwesomeModule,
-    SidebarComponent,
-    LoginComponent,
-    SalaryReportComponent,
-    AttenedanceDepartureComponent,
-    GeneralSettingsComponent,
+    RouterModule,RouterOutlet,
+    FontAwesomeModule,CommonModule,FormsModule,
+    MatToolbarModule,MatButtonModule,MatIconModule,
+    MatSidenavModule,SidebarComponent,
+    LoginComponent,SalaryReportComponent,
+    AttenedanceDepartureComponent,GeneralSettingsComponent,
     EditAttendaceComponent,AddHolidayComponent
 ],
 
