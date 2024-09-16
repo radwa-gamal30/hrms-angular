@@ -50,4 +50,23 @@ submituser1() {
 throw new Error('Method not implemented.');
 }
   logoSrc:string='./assets/images/pioneerslogo(1).png';
+  fullText: string = 'New Admin';
+  displayedText: string = '';
+  typingSpeed: number = 100; // Speed of typing in milliseconds
+
+  ngOnInit(): void {
+    this.typeWriter();
+  }
+
+  typeWriter(): void {
+    let i = 0;
+    const type = () => {
+      if (i < this.fullText.length) {
+        this.displayedText += this.fullText.charAt(i);
+        i++;
+        setTimeout(type, this.typingSpeed); // Adjust typing speed here
+      }
+    };
+    type();
+  }
 }

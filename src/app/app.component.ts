@@ -25,13 +25,20 @@ import { FormsModule } from '@angular/forms';
 
   imports: [
 
-    RouterModule,RouterOutlet,
-    FontAwesomeModule,CommonModule,FormsModule,
-    MatToolbarModule,MatButtonModule,MatIconModule,
-    MatSidenavModule,SidebarComponent,
-    LoginComponent,SalaryReportComponent,
-    AttenedanceDepartureComponent,GeneralSettingsComponent,
-    EditAttendaceComponent,AddHolidayComponent
+    
+    FontAwesomeModule,FormsModule,
+    RouterModule,
+    RouterOutlet,
+    CommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    SidebarComponent,
+    LoginComponent,
+    SalaryReportComponent,
+    AttenedanceDepartureComponent, GeneralSettingsComponent,
+
 ],
 
 
@@ -46,5 +53,5 @@ export class AppComponent {
   }
   collapsed=signal(false);
   sideNavWidth=computed(()=>this.collapsed() ? '64px': '250px');
-  
+
 }

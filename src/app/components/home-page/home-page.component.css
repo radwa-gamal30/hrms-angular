@@ -61,10 +61,9 @@ mat-card {
   display: block;
 }
 
+
 .admin-card{
     padding-right: 5px;
-    
-
 }
 h3{
 
@@ -87,14 +86,13 @@ mat-icon, fa-icon{
 table {
   width: 100%;
   }
-  
+
   .table-row{
     margin-top: 150px;
   }
- 
+
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
 }
-
 
