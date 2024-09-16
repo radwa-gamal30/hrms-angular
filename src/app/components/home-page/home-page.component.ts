@@ -60,9 +60,5 @@ export class HomePageComponent implements OnInit {
   userGroupIcon=faUserGroup;
   usersLineIcon=faUsersLine;
 
-
-  
-
-  
 }
 

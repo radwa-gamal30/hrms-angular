@@ -1,3 +1,4 @@
+
 <div class="card-title d-flex justify-content-between align-items-center pb-3 px-3"> 
   <div class="logo m-0"><img [src]="logoSrc" class="img-fluid rounded-start"></div>
   <a class="nav-a" [routerLink]="['homepage']" routerLinkActive="''" >
@@ -5,6 +6,7 @@
 </div>  <div class=" form-container" (ngSubmit)="formSubmit()">
     <form>
         <h1 class="text-light text-center fs-2">New Employee</h1>
+
         <div class="row m-5">
           <div class="form-group col-md-6">
         <mat-label for="name" class="text-light">Name</mat-label>
@@ -48,7 +50,9 @@
           <mat-label for="salary" class="text-light">Salary</mat-label>
           <input type="text" class="form-control" [(ngModel)]="salary" name="salary" placeholder=".....">
         </div>
+
   </div>
+
 
   <div class="row m-5 ">
       <div class="form-group col-md-6">
@@ -56,6 +60,7 @@
           <input type="text" class="form-control" id="nationality" placeholder="....">
         </div>
         <div class="form-group col-md-6">
+
           <mat-label for="attendance" class="text-light">start Date</mat-label>
           <input type="date" class="form-control" [(ngModel)]="attendance" name="attendance" placeholder="....">
         </div>
@@ -64,6 +69,11 @@
   
      
      <div class="row" [style.margin-left]="'220px'"><button type="submit" class="mx-5 w-50 btn">save</button></div>
+ 
+          
    
+
       </form>
+</div>
+
 </div>
