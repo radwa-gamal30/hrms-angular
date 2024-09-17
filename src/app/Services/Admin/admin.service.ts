@@ -5,7 +5,8 @@ export interface adminResponse{
   fullname:string;
   email:string;
   username:string;
-  group_id:string;
+  privileges?: any[]; 
+  group_id:number;
 
 
 }
@@ -16,7 +17,15 @@ export class AdminService {
   getGroup(){
     return this.httpClient.get(`http://127.0.0.1:8000/api/group`)
   }
+  // getPrivileges(){
+  //   return this.httpClient.get(`http://127.0.0.1:8000/api/privileges`);
+
+  // }
   constructor(private httpClient: HttpClient) { }
+  setAdmin(inputs:any){
+    return this.httpClient.post(`http://127.0.0.1:8000/api/users`,inputs);
+  
+  }
   getAdmins(){
     return this.httpClient.get(`http://127.0.0.1:8000/api/users`);
   }

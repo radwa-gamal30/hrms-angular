@@ -13,44 +13,44 @@
                   <div class="form-group col-md-6">
                 <mat-label for="fullname" class="text-light">Full Name</mat-label>
                 <input type="text" class="form-control" [(ngModel)]="fullname" name="fullname"  placeholder="full name ...">
+                <span *ngIf="errors.fullname" class="text-danger">{{errors.fullname}}</span>
               </div>
              <div class="form-group col-md-6">
                 
-                 <mat-label for="privileges" class="text-light">Privileges</mat-label>
-                  <mat-select type="text" class="px-3 pt-2" [(ngModel)]="privileges"[ngStyle]="{
+                 <mat-label for="group_id" class="text-light">Privileges</mat-label>
+                  <select type="text" class="px-3 pt-2 form-control" [(ngModel)]="group_id" name="group_id" [ngStyle]="{
                     'background-color':'white',
                     'height':'40px',
                     'border-radius':'5px',
-                  }">
+                  }" >
   
-                      <mat-option value="privilege 1">privilege 1</mat-option>
-                      <mat-option value="privilege 2" >privilege 2</mat-option>
-                      <mat-option value="privilege 3">privilege 3</mat-option>
-                      <mat-option value="All">All</mat-option>
-                </mat-select> 
+                      <option *ngFor="let privilege of privileges" [value]="privilege.id">{{privilege.name}}</option>
+                      
+                </select> 
+                <span *ngIf="errors.group_id" class="text-danger">{{errors.group_id}}</span>
                
           </div> </div>
               <div class="row m-5 my-5">
                   <div class="form-group col-md-6">
                 <mat-label for="username" class="text-light">user Name</mat-label>
                 <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="user name ...">
+                <span *ngIf="errors.username" class="text-danger">{{errors.username}}</span>
               </div>
               <div class="form-group col-md-6">
-                <mat-label for="password" class="text-light">Password</mat-label>
-                <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password...">
+                <mat-label for="email" class="text-light">Email</mat-label>
+                <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="email ....">
+                <span *ngIf="errors.email" class="text-danger">{{errors.email}}</span>
               </div>
+            
              
               </div>
-              
-               
-          <input type="hidden" class="form-control" [(ngModel)]="groupid" name="email" placeholder="email ....">
-              
-          
+                        
           <div class="row m-5 my-5">
-              <div class="form-group col-md-12">
-                  <mat-label for="email" class="text-light">Email</mat-label>
-                  <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="email ....">
-                </div>
+            <div class="form-group col-md-12">
+              <mat-label for="password" class="text-light">Password</mat-label>
+              <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password...">
+              <span *ngIf="errors.password" class="text-danger">{{errors.password}}</span>
+            </div>
           </div>
              
              <div class="row" [style.margin-left]="'120px'"><button type="submit" (click)="submituser1()" class="mx-5 w-50 btn">save</button></div>
