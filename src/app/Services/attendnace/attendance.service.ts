@@ -25,6 +25,10 @@ export interface AttendanceResponse{
   employee: Employee; 
 
 }
+export interface attendanceResponseType{
+  status:number;
+  data: AttendanceResponse[];
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -32,7 +36,11 @@ export interface AttendanceResponse{
 export class AttendanceService {
   constructor(private httpClient:HttpClient) { }
   getList(){
-    return this.httpClient.get(`http://127.0.0.1:8000/api/attendance`);
+    return this.httpClient.get<attendanceResponseType>(`http://127.0.0.1:8000/api/attendance`);
+
+  }
+  getAttendance(attendanceId:number,updatedattendance:any){
+    return this.httpClient.put(`http://127.0.0.1:8000/api/attendance/${attendanceId}`,updatedattendance);
 
   }
   getEmployees(){

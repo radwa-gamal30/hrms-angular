@@ -17,11 +17,14 @@ import { LoaderComponent } from "../loader/loader.component";
   styleUrl: './attenedance-departure.component.css'
 })
 export class AttenedanceDepartureComponent {
+delete(attendance:any) {
+
+}
   attendance!:AttendanceResponse[];
   dataSource = new MatTableDataSource<AttendanceResponse>([]);
   onboard:any='./assets/images/onboard(1).png';
   isLoading: boolean=false;
-  displayedColumns: string[] = ['id','employee_name', 'department_name', 'check_in', 'check_out','date','hours', 'status'];
+  displayedColumns: string[] = ['id','employee_name', 'department_name', 'check_in', 'check_out','date','hours', 'status','actions'];
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
@@ -32,7 +35,7 @@ export class AttenedanceDepartureComponent {
   }
   getAttendnaceList(){
     this.isLoading=true;
-    this.attendanceService.getList().subscribe((res:any)=>{
+    this.attendanceService.getList().subscribe((res)=>{
         // console.log(res);
         this.attendance = res.data;
         this.dataSource.data = this.attendance;

@@ -3,27 +3,50 @@
       <div class="logo">
         <img src="logo.png" class="img-fluid rounded-start">
       </div>
-      <div class="title text-center pb-5">
+      <div class="title text-center pb-5 fw-bold" [ngStyle]="{'color': '#296889'}">
         {{displayedText}}
       </div>
-        <div class="mt-2 pb-5">
-          <form action="" method="" class="m-auto rounded p-5">
-            <p class="text-white">Employee Name: </p>
-            <p class="text-white">Department: </p>
+      <div class="card mt-5 pb-5" [ngStyle]="{'background-color':'transparent','border':'none'}">
+        <div *ngIf="isLoading; else elseForm">
+          <app-loader :title="loadingTitle"></app-loader>
+        </div>
+        <ng-template #elseForm>
+          <form action="" method="" class="m-auto rounded p-5" (ngSubmit)="updateAttendance()">
+            <div class="mb-3">
+              <label for="employee_id" class="form-label text-white mb-0">employee Name</label>
+              <select type="text" class="form-control" [(ngModel)]="attendnace.employee_id"
+                name="selectedEmployeeId" required>
+                <option *ngFor="let employee of employees" [value]="employee.id">{{employee.name}}</option>
+              </select>
+              <span *ngIf="errors.employee_id" class="text-danger">{{errors.employee_id}}</span>
+            </div>
+  
             <div class="mb-3">
               <label for="attedanceTime" class="form-label text-white mb-0">Attedance Time</label>
-              <input type="time" class="form-control" id="attedanceTime">
+              <input type="time" class="form-control" [(ngModel)]="attendnace.attedanceTime" id="attedanceTime" name="attedanceTime"
+                required>
+              <span *ngIf="errors.check_in" class="text-danger">{{errors.check_in}}</span>
+  
             </div>
             <div class="mb-3">
               <label for="departureTime" class="form-label text-white mb-0">Departure Time</label>
-              <input type="time" class="form-control" id="departureTime">
+              <input type="time" class="form-control" [(ngModel)]="attendnace.departureTime" id="departureTime" name="departureTime" required>
+                <span *ngIf="errors.check_out" class="text-danger">{{errors.check_out}}</span>
             </div>
+  
             <div class="mb-3">
               <label for="attendanceDate" class="form-label text-white mb-0">Attendance Date</label>
-              <input type="date" class="form-control" id="attendanceDate">
+              <input type="date" class="form-control"  [(ngModel)]="attendnace.attendanceDate" id="attendanceDate"
+                name="attendanceDate" required>
+              <span *ngIf="errors.date" class="text-danger">{{errors.date}}</span>
+  
+  
             </div>
-            <button type="submit" class="btn w-50 m-auto d-block text-white">Update</button>
+            <button type="submit" class="btn w-50 m-auto d-block text-white">Add</button>
           </form>
-        </div>
+        </ng-template>
+  
+  
+      </div>
       </div>
 </div>
