@@ -41,11 +41,17 @@ form
   background-color: #296889;
   color: white;
   font-size: 15px;
+  /* margin-left: 100px; */
 }
-.search div
+.search i
 {
-  border: 2px solid #296889;
   border-radius: 10px;
+  background-color: #296889;
+  color: white;
+  padding: 10px;
+  right: 0;
+  border-top-left-radius:0 ;
+  border-bottom-left-radius:0 ;
 }
 .search div span
 {
@@ -75,4 +81,7 @@ td
 
 table {
   width: 100%;
+}
+.text-danger{
+  cursor: pointer;
 }

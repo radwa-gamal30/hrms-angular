@@ -6,7 +6,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule, NgStyle } from '@angular/common';
 import { group } from '@angular/animations';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faLongArrowRight } from '@fortawesome/free-solid-svg-icons';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-user1',
@@ -14,6 +18,8 @@ import { RouterModule } from '@angular/router';
   imports: [MatFormField,
     FormsModule,
     MatInputModule,
+    MatIconModule,
+    FontAwesomeModule,
     MatSelectModule,
     CommonModule,
     RouterModule
@@ -22,17 +28,18 @@ import { RouterModule } from '@angular/router';
   styleUrl: './add-user1.component.css'
 })
 export class AddUser1Component {
-constructor(private adminService:AdminService){}
+  faLongArrowRight = faLongArrowRight;
+constructor(private adminService:AdminService,private router:Router,private snackBar:MatSnackBar){}
   // declare inputs
 
 fullname:string='';
 username:string='';
 email:string='';
 password:string='';
-errors:any=[];
-group_id:number=0;
-privileges:any[]=[];
 groups:any[]=[];
+group_id:number=0;
+
+errors:any=[];
 isLoadig:boolean=false;
 loadingtitle='loading';
 ngOnInit(){
@@ -40,17 +47,18 @@ this.loadGroups();
 this.typeWriter();
 }  
 loadGroups(){
-  this.adminService.getGroup().subscribe((res:any)=>{
-    console.log('API Response:', res);
-
-   this.groups=res.groups || [];
-   
-  // Map the privileges
-  this.privileges = this.groups.flatMap((group: any) => group.privileges || []); // Use empty array if undefined
-    console.log('Privileges:', this.privileges);
+  this.adminService.getGroup().subscribe({
+    next:  (res:any)=>{
+      console.log(res);
+      
+      this.groups=res.group;
+    },
+      error: (er:any)=>{
+        console.log('error log',er);
+        
+        this.errors=er.error.errors;}
   })
 }
-
   formsubmit() {
     
     var inputs ={
@@ -65,18 +73,20 @@ loadGroups(){
     this.adminService.setAdmin(inputs).subscribe({
       next: (res:any)=>{
         console.log(res);    
-        alert(res.message);
+        this.snackBar.open(res.message,'close',{duration: 3000});
         this.fullname='';
         this.username='';
         this.email='';
         this.password='';
         this.group_id=0;
-       
+        this.router.navigate(['/admins']);
+
       },
       error: (er)=>{
-        console.log('error log',er);
-        
         this.errors=er.error.errors;
+        console.log('error log',er);
+        this.snackBar.open('error occured , try again !','close',{duration: 3000});
+
      
       }
     });
@@ -85,9 +95,6 @@ loadGroups(){
 }
 
 
-submituser1() {
-
-}
   logoSrc:string='./assets/images/pioneerslogo(1).png';
   fullText: string = 'New Admin';
   displayedText: string = '';

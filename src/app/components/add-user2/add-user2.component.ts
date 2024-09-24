@@ -5,7 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-add-user2',
@@ -25,8 +27,6 @@ import { RouterModule } from '@angular/router';
 export class AddUser2Component {
 
 logoSrc:string='./assets/images/pioneerslogo(1).png';
-
-
 name:String='';
 phone:string='';
 salary:string='';
@@ -38,7 +38,7 @@ gender: any='';
 doa:Date | undefined;
 errors:any=[];
 departments:any[]=[];
-constructor(private employeeService:EmployeeService){}
+constructor(private employeeService:EmployeeService,private router:Router, private snackBar:MatSnackBar){}
 ngOnInit(){
   this.loadDepartments();
 }
@@ -48,7 +48,7 @@ loadDepartments(){
     next: (dep:any)=>{
       console.log(dep);
       
-      this.departments =dep.data;
+      this.departments =dep.department;
     },
     error: (er:any)=>{
       this.errors=er.error.errors;
@@ -70,8 +70,9 @@ formSubmit(){
   }
   this.employeeService.setEmployees(inputs).subscribe({
     next: (res:any)=>{
+      this.snackBar.open(res.message,'close',{duration: 3000});
       console.log(res,'response');
-      alert(res.message);
+      // alert(res.message);
       this.name='';
       this.department_id='';
       this.phone='';
@@ -81,10 +82,14 @@ formSubmit(){
       this.doa=new Date();
       this.hire_date=new Date();
       this.gender='';
+      this.router.navigate(['/employees'])
+      
     },
     error: (er:any)=>{
       this.errors=er.error.errors;
       console.log(er.error.errors,'errors'); 
+      this.snackBar.open('error occured , try again !','close',{duration: 3000});
+
       
     
     }

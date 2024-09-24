@@ -2,71 +2,86 @@
     <div class="card" [ngStyle]="{'background-color':'transparent','border':'none'}">
       <div class="card-title d-flex justify-content-between align-items-center"[ngStyle]="{'display':'inline-block','margin-bottom':'20px'}" >
           <p [ngStyle]="{'display':'inline-block','color':'#28688B'}" class="fs-3 m-0">Edit Employee</p>
-            <a class="nav-a" [routerLink]="['homepage']" routerLinkActive="''" >
-                <button class="btn-back">back</button></a>
+            <a class="nav-a" [routerLink]="['/employees']" routerLinkActive="''" >
+              <fa-icon [icon]="faLongArrowRight" class=" fs-2 mb-5" ></fa-icon></a>
         </div>
         <div class="container">
-            <form>
-                <div class="row m-5">
-                    <div class="form-group col-md-6">
-                  <mat-label for="name" class="text-light">Name</mat-label>
-                  <input type="text" class="form-control" id="name"  placeholder="...">
+          <div *ngIf="isLoading; else elseForm">
+            <app-loader :title="loadingTitle"></app-loader>
+          </div>
+          <ng-template #elseForm>
+            <form [formGroup]="employeeForm" (ngSubmit)="submitForm()">
+              <div class="row m-5">
+                <div class="form-group col-md-6">
+                  <mat-label for="name" class="text-light">Employee name</mat-label>
+                  <input type="text" class="form-control" formControlName="name" name="name" id="name">
+          
                 </div>
                 <div class="form-group col-md-6">
-                  <mat-label for="birthdate" class="text-light">Birth Date</mat-label>
-                  <input type="birthdate" class="form-control" id="birthdate" placeholder="...">
+                  <mat-label for="ssn" class="text-light">national ID</mat-label>
+                  <input type="text" class="form-control" formControlName="ssn" name="ssn" id="ssn">
+          
                 </div>
-            </div>
-                <div class="row m-5 ">
-                    <div class="form-group col-md-6">
+          
+              </div>
+          
+              <div class="row m-5 ">
+                <div class="form-group col-md-6">
+                  <mat-label for="phone" class="text-light">Phone</mat-label>
+                  <input type="text" class="form-control" formControlName="phone" name="phone" id="phone" >
+          
+                </div>
+                <div class="form-group col-md-6">
+                  <mat-label for="hire_date" class="text-light">Contract Date</mat-label>
+                  <input type="date" class="form-control" formControlName="hire_date" name="hire_date" id="hire_date">
+          
+                </div>
+              </div>
+              <div class="row m-5">
+                <div class="form-group col-md-6">
+                  <mat-label for="gender" class="text-light ">Gender</mat-label>
+                  <select type="text" class="form-control" formControlName="gender" name="gender" id="gender">
+                    <option value="">select gender....</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                  </select>
+          
+                </div>
+                <div class="form-group col-md-6">
+                  <mat-label for="department_id" class="text-light">department</mat-label>
+                  <select type="text" class="form-control" formControlName="department_id" id="department_id" name="departmentId"
+                    >
+                    <option *ngFor="let dt of departments" [value]="dt.id">{{dt.department_name}}</option>
+                  </select>
+                </div>
+          
+              </div>
+              <div class="row m-5">
+                <div class="form-group col-md-12">
                   <mat-label for="address" class="text-light">address</mat-label>
-                  <input type="text" class="form-control" id="address" placeholder="...">
+                  <textarea class="form-control w-100" formControlName="address" name="address" id="address"></textarea>
+          
+                </div>
+          
+              </div>
+          
+              <div class="row m-5 ">
+                <div class="form-group col-md-6">
+                  <mat-label for="salary" class="text-light">Salary</mat-label>
+                  <input readonly type="text" class="form-control" formControlName="salary" name="salary" >
+
                 </div>
                 <div class="form-group col-md-6">
-                  <mat-label for="nationalId" class="text-light">national ID</mat-label>
-                  <input type="text" class="form-control" id="nationalId" placeholder="....">
+                  <mat-label for="doa" class="text-light">start Date</mat-label>
+                  <input type="date" class="form-control" formControlName="doa"  name="doa" >
                 </div>
-            </div>
-            <div class="row m-5 ">
-                <div class="form-group col-md-6">
-                    <mat-label for="phone" class="text-light">Phone</mat-label>
-                    <input type="text" class="form-control" id="phone" placeholder="....">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <mat-label for="contractDate" class="text-light">Contract Date</mat-label>
-                    <input type="date" class="form-control" id="contractDate" placeholder="....">
-                  </div>
-            </div>
-            <div class="row m-5">
-                <div class="form-group col-md-6">
-                    <mat-label for="gender" class="text-light ">Gender</mat-label>
-                    <select type="text" class="form-control" id="phone">
-                        <option value="">select gender...</option>
-                        <option value="male">male</option>
-                        <option value="female">female</option>
-                    </select> 
-                  </div>
-                  <div class="form-group col-md-6">
-                    <mat-label for="salary" class="text-light">Salary</mat-label>
-                    <input type="text" class="form-control" id="salary" placeholder="....">
-                  </div>
-            </div>
-        
-            <div class="row m-5 ">
-                <div class="form-group col-md-6">
-                    <mat-label for="nationality" class="text-light">Nationality</mat-label>
-                    <input type="text" class="form-control" id="nationality" placeholder="....">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <mat-label for="attendance" class="text-light">Start Date</mat-label>
-                    <input type="date" class="form-control" id="contractDate" placeholder="....">
-                  </div>
-            </div>
-            
+          
+              </div>    
                
-               <div class="row" [style.margin-left]="'220px'"><button type="submit" class="mx-5 w-50 btn">save</button></div>
+               <div class="row" [style.margin-left]="'220px'"><button type="submit" class="mx-5 w-50 btn">update</button></div>
              
               </form>
+          </ng-template>
         </div>
     </div>
 </div>

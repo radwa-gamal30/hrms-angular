@@ -1,5 +1,18 @@
+body
+{
+  background-color: #EBEBEB;
+}
+img
+{
+  width: 20%;
+}
+.title
+{
+  font-size: 2rem;
+  text-transform: capitalize;
+}
 button {
-    width: 160px;
+    height: 37px;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -11,6 +24,11 @@ button {
     text-align: center;
     margin: auto;
 }
-#thead{
-    background-color: #2a6f8b !important;
+.table{
+  color: #fff;
+}
+table.custom-thead {
+  background-color: #2a6f8b;
+  color: white; 
+  
 }

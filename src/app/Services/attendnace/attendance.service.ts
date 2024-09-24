@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 export interface Employee {
   id: number;
@@ -9,6 +8,20 @@ export interface Employee {
     id: number;
     department_name: string;
   };
+}
+export interface monthlyReport{
+  // "id": number;
+  "employee_name": string,
+  "department_name": string,
+  "basic_salary": string,
+  "total_attendance_days": number,
+  "total_departure_days": number,
+  "additional_hours": string,
+  "discount_hours": string,
+  "total_addition": string,
+  "total_discount": string,
+  "net_salary": string,
+  // employee: Employee;
 }
 export interface AttendanceResponse{
   id: number;
@@ -22,12 +35,22 @@ export interface AttendanceResponse{
   hours: any;
   created_at: string;
   updated_at: string;
+  bonus_value:number;
+  deduction_value:number;
   employee: Employee; 
 
 }
 export interface attendanceResponseType{
   status:number;
-  data: AttendanceResponse[];
+  attendance: AttendanceResponse[];
+}
+export interface reportResponseType{
+  status:number;
+  report: monthlyReport[];
+}
+export interface attendanceEditResponse{
+  status:number;
+  attendance: AttendanceResponse;
 }
 @Injectable({
   providedIn: 'root'
@@ -39,14 +62,37 @@ export class AttendanceService {
     return this.httpClient.get<attendanceResponseType>(`http://127.0.0.1:8000/api/attendance`);
 
   }
-  getAttendance(attendanceId:number,updatedattendance:any){
-    return this.httpClient.put(`http://127.0.0.1:8000/api/attendance/${attendanceId}`,updatedattendance);
+  getAttendance(attendanceId:number){
+    return this.httpClient.get<attendanceEditResponse>(`http://127.0.0.1:8000/api/attendance/${attendanceId}`);
 
   }
+  updateAttendance(attendanceId:number,data:any){
+    return this.httpClient.put(`http://127.0.0.1:8000/api/attendance/${attendanceId}`,data);
+  }
   getEmployees(){
-    return this.httpClient.get(`http://127.0.0.1:8000/api/employees`);
+    return this.httpClient.get<Employee[]>(`http://127.0.0.1:8000/api/employees`);
   }
   submitAttendance(inputs:any){
    return this.httpClient.post(`http://127.0.0.1:8000/api/attendance`,inputs);
+  }
+  delattendance(attendanceId: number) {
+    return this.httpClient.delete(`http://127.0.0.1:8000/api/employees/${attendanceId}`);
+  }
+  getMonthlyReport(){
+    return this.httpClient.get<reportResponseType>('http://127.0.0.1:8000/api/reports');
+  }
+  getReportByMonth(month?:number, year?:number){
+    let params:any = {};
+    if(year){
+      params.year= year.toString();
+    }
+    if(month){
+      params.month= month.toString();
+    }
+    return this.httpClient.get(`http://127.0.0.1:8000/api/reports`,{params});
+  }
+  searchAttendanceByname(empName:string,from:any,to:any)
+  {
+    return this.httpClient.get(`http://127.0.0.1:8000/api/attendance/searchByname/${empName}/${from}/${to}`);
   }
 }

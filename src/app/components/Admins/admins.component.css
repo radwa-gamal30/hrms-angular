@@ -76,3 +76,7 @@ td
 table {
   width: 100%;
 }
+
+.text-danger{
+  cursor: pointer;
+}

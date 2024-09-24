@@ -1,31 +1,47 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { AuthService } from '../../Services/authService/authservice.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  userData={}
-  loginForm:FormGroup=new FormGroup({
-    user:new FormControl('',[Validators.required]),
-    password:new FormControl('',[Validators.required])
-})
-get user()
-{
-  return this.loginForm.get('user');
-}
-get password()
-{
-  return this.loginForm.get('password');
-}
-sendData()
-{
-  this.userData=this.loginForm.value;
-  console.log(this.userData)
-}
+  email: string = '';
+  password: string = '';
+  errorMessage: string = '';
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  async onSubmit() {
+    if (!this.email) {
+      this.errorMessage = "Email is required.";
+      return;
+  }
+
+  if (!this.password) {
+      this.errorMessage = "Password is required.";
+      return;
+  }
+
+  this.authService.login(this.email, this.password).subscribe(
+    (response:any) => {
+      if (response.status && response.token) {
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('name', response.full_name); 
+          console.log("login done")
+      } else {
+          alert('Check your Email or Password');
+      }
+  },
+  (error:any) => {
+      this.errorMessage = "Your passsword or email is incorrect";
+  }
+ );
+  }
 }

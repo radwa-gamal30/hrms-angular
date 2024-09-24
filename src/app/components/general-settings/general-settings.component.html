@@ -1,4 +1,8 @@
-<img [src]="logoSrc" alt="Logo">
+<div class="row w-100 h-100">
+  <div class="col-md-11 main-data pt-3">
+<div class="logo">
+  <img src="logo.png" class="img-fluid rounded-start">
+</div>
 <div class="form-container text-center">
 
     <h2 >General Settings</h2>
@@ -37,6 +41,7 @@
 
     <div class="form-group m-3">
       <button type="button" class="btn">Save</button>
-      <button type="button" class="btn">Update</button>
+     <a [routerLink]="['/edit-weekend']" routerLinkActive="router-link-active" ><button type="button" class="btn">Update</button></a> 
     </div>
   </div>
+  </div></div>
