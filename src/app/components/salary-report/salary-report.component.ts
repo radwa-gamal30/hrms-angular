@@ -1,3 +1,4 @@
+import printJS from 'print-js';
 import { Component, ViewChild } from '@angular/core';
 import { SidebarComponent } from "../sidebar/sidebar.component";
 import {MatTooltipModule} from '@angular/material/tooltip';
@@ -9,6 +10,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {faPrint }  from '@fortawesome/free-solid-svg-icons';
 import { AttendanceService, monthlyReport } from '../../Services/attendnace/attendance.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 
 
@@ -20,9 +23,13 @@ import { Router } from '@angular/router';
   styleUrl: './salary-report.component.css'
 })
 export class SalaryReportComponent {
-
+  month: number | null = null;
+  months:any[]=['Saturday','Sunday','Monday','Tuesday','Wedensday','Thursday','Friday'];
+  year: number | null = null;
+  years:number[]=[];
+  errorMessage: string = '';
   print=faPrint;
-
+  monthNow:boolean=true;
   report!:monthlyReport[];
   dataSource = new MatTableDataSource<monthlyReport>([]);
   onboard:any='./assets/images/onboard(1).png';
@@ -31,100 +38,104 @@ export class SalaryReportComponent {
   
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
-  constructor (private attendanceService : AttendanceService,private router:Router){}
- 
+  constructor (private attendanceService : AttendanceService,private router:Router,private httpClient: HttpClient){
+    const currentYear = new Date().getFullYear();
+    for (let i = 2008; i <= currentYear; i++) {
+      this.years.push(i);
+
+  }
+}
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
   ngOnInit(): void {
+    this.dataSource.filterPredicate=(data:monthlyReport,filter:string): boolean => {
+      const emloyee_name=data.employee_name.toLowerCase();
+      const department_name=data.department_name.toLowerCase();
+      return this,emloyee_name.includes(filter) || department_name.includes(filter);
+
+}
+  
     this.loadReport();
   }
   loadReport() {
     this.attendanceService.getMonthlyReport().subscribe({
       next: (res:any)=>{
+        
         this.report=res.report;
+        console.log(this.report);
         this.dataSource.data =this.report;
       },
       error: (err)=>{
         console.log(err);
         alert('Error loading report');
       }
-    })
-    
-
+    });
   }
+  filter(month: any , year: any) {
+    // Ensure month and year are provided
+    if (!month || !year) {
+      alert('Please provide both month and year');
+      return;
+    }
+    const indexedMonth=this.months.indexOf(month)+1;
     
-   
-  printPage(row: monthlyReport) {
-    // Create a print area dynamically
+    this.attendanceService.getReportByMonth(indexedMonth,year).subscribe({
+      next: (res: any) => {
+        this.monthNow = false;
+        this.report = res.report;  
+        this.dataSource.data = this.report; 
+        this.dataSource.paginator = this.paginator; 
+      },
+      error: (err: any) => {
+        console.log(err);
+        alert('Error loading report');
+      }
+    });
+  }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.dataSource.filter=filterValue;
+  }
+
+  printSalary(salary: any): void {
     const printContent = `
       <div>
-        <h3>Employee Report</h3>
-        <p><strong>Employee Name:</strong> ${row.employee_name}</p>
-        <p><strong>Department:</strong> ${row.department_name}</p>
-        <p><strong>Basic Salary:</strong> ${row.basic_salary}</p>
-        <p><strong>Total Attendance Days:</strong> ${row.total_attendance_days}</p>
-        <p><strong>Total Departure Days:</strong> ${row.total_departure_days}</p>
-        <p><strong>Additional Hours:</strong> ${row.additional_hours}</p>
-        <p><strong>Discount Hours:</strong> ${row.discount_hours}</p>
-        <p><strong>Total Addition:</strong> ${row.total_addition}</p>
-        <p><strong>Total Discount:</strong> ${row.total_discount}</p>
-        <p><strong>Net Salary:</strong> ${row.net_salary}</p>
+        <h1>Salary Details</h1>
+        <hr>
+        <div class='content'>
+         <p><strong>Name:</strong> ${salary.employee_name}</p>
+        <p><strong>Department:</strong> ${salary.department_name}</p>
+        <p><strong>Basic Salary:</strong> ${salary.basic_salary}</p>
+        <p><strong>Work Days:</strong> ${salary.total_attendance_days}</p>
+        <p><strong>Absence Days:</strong> ${salary.total_departure_days}</p>
+        <p><strong>Total Bonus Hours:</strong> ${salary.additional_hours}</p>
+        <p><strong>Total Deduction Hours:</strong> ${salary.discount_hours}</p>
+        <p><strong>Bonus Amount:</strong> ${salary.total_addition}</p>
+        <p><strong>Deductions Amount:</strong> ${salary.total_discount}</p>
+        </div>
+        <hr>
+        <p id="sub-title"><strong>Total Salary:</strong> ${salary.net_salary}</p>
       </div>
     `;
-
-    // Create a new window for printing
-    const printWindow = window.open('', '_blank', 'width=800,height=600');
-    if (printWindow) {
-      printWindow.document.write(`
-        <html>
-          <head>
-            <title>Print Employee Report</title>
-            <style>
-              body {
-                font-family: Arial, sans-serif;
-                padding: 20px;
-              }
-              h3 {
-                color: #28688B;
-              }
-              p {
-                font-size: 14px;
-                margin: 5px 0;
-              }
-            </style>
-          </head>
-          <body onload="window.print();window.close()">
-            ${printContent}
-          </body>
-        </html>
-      `);
-      printWindow.document.close(); // Close the document stream
-    }
+    printJS({
+      printable: printContent,
+      type: 'raw-html',
+      style: `
+        h1 { text-align: center; }
+        div { font-family: Arial, sans-serif;}
+        #sub-title{font-size:18px ; color:#e94d65;text-align:end}
+      `,
+      scanStyles: false
+    });
   }
 
- 
 }
-  // delete(attendanceId:any) {
-  //   if (confirm('Are you sure you want to delete this record')){
-  //     this.attendanceService.delattendance(attendanceId).subscribe({
-  //       next:(res:any)=> {
-  //         this.load();
-  //         alert(res.message);
-  //         this.router.navigate(['/attendance-departure']);
-          
-  //       }  ,
-  //       error:
-  //       (err) => {
-  //         alert('Error deleting attendance');
-  //         console.error('error in delete process, try again',err);
-          
-  //       }
-  //     })
 
-  //   }
+ 
 
-  // }
+
 
 
 

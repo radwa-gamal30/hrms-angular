@@ -1,15 +1,11 @@
 
 <mat-toolbar class=" mat-toolbar mat-elevation-z3"  *ngIf="!isLogin()">
   <button mat-icon-button class="menu-btn" (click)="collapsed.set(!collapsed())">
-    <mat-icon>menu</mat-icon></button>
+    <mat-icon class="text-light">menu</mat-icon></button>
   <span class="ms-auto mat-toolbar-spacer"></span>
- <a class="nav-a col-md-1 me-5 "
-
- [routerLink]="['']" 
- routerLinkActive="''" 
- >
-  <span class="user me-3"> User1 </span>
-  <button class="login-btn">Logout</button></a>
+ <div class="me-3">
+  <span class="user me-3"> {{user_name}}</span>
+  <button class="logout-btn" (click)="logout()">Logout</button></div>
 
 
 

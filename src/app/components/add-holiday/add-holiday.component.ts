@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Holiday, HolidayService } from '../../Services/holiday/holiday.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Holiday, HolidayService, HolidaysResponseType } from '../../Services/holiday/holiday.service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -7,12 +7,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatIconModule } from '@angular/material/icon';
 import {faEdit, faDeleteLeft, faEye  }  from '@fortawesome/free-solid-svg-icons';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
 
 
 @Component({
   selector: 'app-add-holiday',
   standalone: true,
-  imports: [CommonModule,RouterModule,FormsModule,FontAwesomeModule,MatIconModule],
+  imports: [CommonModule,RouterModule,FormsModule,FontAwesomeModule,MatIconModule,MatTableModule,MatPaginator],
   templateUrl: './add-holiday.component.html',
   styleUrl: './add-holiday.component.css'
 })
@@ -27,17 +29,25 @@ export class AddHolidayComponent  implements OnInit{
   holidays!:Holiday[];
   selectedHoliday:any  = {}; 
   errors:any[]=[];
-  constructor(private holidayService:HolidayService,private router:Router,private snackBar:MatSnackBar) { }
+  displayedColumns:string[]=['id','name','holiday_date','actions'];
+  dataSource=new MatTableDataSource<Holiday>([]);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+ngAfterViewInit() {
+  this.dataSource.paginator = this.paginator;
+}
   ngOnInit(): void {
-   
+    
     this.loadHolidays();
   }
+  constructor(private holidayService:HolidayService,private router:Router,private snackBar:MatSnackBar) { }
   loadHolidays(){
     this.holidayService.getHolidays().subscribe({
       next: (res) => {
         console.log(res.holidays);
         
         this.holidays = res.holidays;
+        this.dataSource.data=this.holidays;
       },
       error: (error) => {
         console.error('Error retrieving holidays', error);
@@ -73,6 +83,7 @@ addHoliday() {
     id:this.holidayId,
     name:this.name,
     holiday_date:this.holiday_date
+
   }
   this.holidayService.addHoliday(inputs).subscribe({
     next: (res:any)=>{
@@ -85,9 +96,10 @@ addHoliday() {
       this.snackBar.open('error occured while adding holiday, try again !','close',{duration: 3000});
       console.error('Error while adding holiday', err);
     }
-  })
+  });
 }
   
+
 
  
 }

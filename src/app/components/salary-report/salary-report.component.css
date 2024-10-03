@@ -5,7 +5,7 @@ body
 }
 .logo
 {
-  width: 20%;
+  width: 10%;
 }
 .title
 {
@@ -29,7 +29,7 @@ form
 {
   width: 36%;
 }
-.month,.year,.submit
+.month, .year, .submit
 {
   width: 34%;
 }
@@ -62,7 +62,26 @@ thead th
   background-color: #296889;
   color: white;
 }
+.filter{
+   
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5f7a82;
+  color: white;
+  font-size: 16px;
+  margin: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+.filter:hover {
+  background-color: #48616d;
+}
 i
 {
   cursor: pointer;
+  color: #fff;
+  background-color: #296889;
+  padding: 5px;
+
 }

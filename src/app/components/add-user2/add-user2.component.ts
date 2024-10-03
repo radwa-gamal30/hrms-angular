@@ -7,8 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Router, RouterModule } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatIconModule } from '@angular/material/icon';
 
-
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-add-user2',
   standalone: true,
@@ -18,20 +20,24 @@ import {MatSnackBar} from '@angular/material/snack-bar';
     MatButtonModule,
     MatSelectModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    FontAwesomeModule,
+    MatIconModule
 
   ],
   templateUrl: './add-user2.component.html',
   styleUrl: './add-user2.component.css'
 })
 export class AddUser2Component {
-
+  faLongArrowRight=faArrowRight;
 logoSrc:string='./assets/images/pioneerslogo(1).png';
 name:String='';
 phone:string='';
 salary:string='';
 hire_date:Date | undefined;
 ssn:string='';
+check_in:string='';
+check_out:string='';
 address:string='';
 department_id:string='';
 gender: any='';
@@ -63,6 +69,8 @@ formSubmit(){
     'salary':this.salary,
     'hire_date':this.hire_date,
     'ssn':this.ssn,
+    'check_in':this.check_in.slice(0,5),
+    'check_out':this.check_out.slice(0,5),
     'address':this.address,
     'department_id':this.department_id,
     'gender':this.gender,
@@ -78,6 +86,8 @@ formSubmit(){
       this.phone='';
       this.salary='';
       this.ssn='';
+      this.check_in='';
+      this.check_out='';
       this.address='';
       this.doa=new Date();
       this.hire_date=new Date();

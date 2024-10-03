@@ -55,8 +55,8 @@ form
 }
 thead th
 {
-  background-color: #296889;
-  color: white;
+  /* background-color: #296889; */
+  color: #0B5E84;
   text-align: center;
 }
 i
@@ -76,8 +76,13 @@ td
 form
 {
   box-shadow: 10px 10px 10px gainsboro;
-  border: 2px solid #0B5E84 !important;
-  background-color: #0B5E84;
+  border: 1px solid rgb(206, 206, 206) !important;
+  background-color: #fff;
+}
+.form-label, .submit{
+  color: #0B5E84;
+  font-weight: 600;
+
 }
 button
 {

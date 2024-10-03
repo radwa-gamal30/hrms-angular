@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { PermissionsService } from '../../Services/permissions/permissions.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-add-group',
@@ -9,17 +12,20 @@ import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Va
   templateUrl: './add-group.component.html',
   styleUrls: ['./add-group.component.css']
 })
-export class AddGroupComponent {
+export class AddGroupComponent implements OnInit{
+  allPermissions:any[]=[]
   groupPriviliages: FormGroup;
   pages: string[] = ['employees', 'General Settings', 'Attendance and Departure', 'Salaries Report'];
 
-  constructor() {
+  constructor(private perimissionServ:PermissionsService,private snackBar:MatSnackBar) {
     this.groupPriviliages = new FormGroup({
       groupName: new FormControl('', [Validators.required, Validators.minLength(2)]),
       permissions: new FormArray(this.pages.map(page => this.createPermissionGroup(page)))
     });
   }
-
+  ngOnInit(): void {
+    this.getAllPermissions();
+  }
   get groupName() {
     return this.groupPriviliages.get('groupName');
   }
@@ -47,5 +53,28 @@ export class AddGroupComponent {
   }
   sendData() {
     console.log(this.groupPriviliages.value);
+    this.perimissionServ.sendPermisson(this.groupPriviliages.value).subscribe({
+      next:(res:any)=>{
+        this.snackBar.open('group  with permissions added✔','close',{duration:500});
+        console.log('sended');
+      },
+      error:(err:any)=>{
+        console.log('not sended');
+      }
+    });
+  }
+  getAllPermissions()
+  {
+    this.perimissionServ.getAllPermissions().subscribe({
+      next:(res:any)=>{
+        this.allPermissions=res;
+        
+        console.log(this.allPermissions);
+
+      },
+      error:(err:any)=>{
+        console.log(err);
+      }
+    })
   }
 }

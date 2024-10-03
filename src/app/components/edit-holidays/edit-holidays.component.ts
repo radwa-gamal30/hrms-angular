@@ -6,18 +6,19 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {  MatIconModule } from '@angular/material/icon';
-import {faEdit, faDeleteLeft, faEye  }  from '@fortawesome/free-solid-svg-icons';
+import {faEdit, faDeleteLeft, faEye,faLongArrowRight  }  from '@fortawesome/free-solid-svg-icons';
 import { MatInputModule } from '@angular/material/input';
 
 
 @Component({
   selector: 'app-edit-holidays',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,FormsModule,FontAwesomeModule,MatIconModule,MatInputModule],
+  imports: [ReactiveFormsModule,CommonModule,FormsModule,FontAwesomeModule,MatIconModule,MatInputModule,RouterModule],
   templateUrl: './edit-holidays.component.html',
   styleUrl: './edit-holidays.component.css'
 })
 export class EditHolidaysComponent {
+  faLongArrowRight=faLongArrowRight;
   editForm!:FormGroup;
   holidayId!:number;
   holidays!:Holiday[];

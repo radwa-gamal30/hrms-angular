@@ -4,10 +4,10 @@ import { provideHttpClient } from '@angular/common/http';
 import { Component,OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import { LoaderComponent } from "../loader/loader.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowRotateForward } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { LoaderComponent } from '../loader/loader.component';
 
 
 @Component({
@@ -18,7 +18,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrl: './add-attendance.component.css',
 })
 export class AddAttendanceComponent {
-  faArrowRotateForward=faArrowRotateForward;
+  faArrowRotateForward=faArrowRight;
   employees:any[]=[];
   selectedEmployeeId: number = 0;
   check_in: string = '';  

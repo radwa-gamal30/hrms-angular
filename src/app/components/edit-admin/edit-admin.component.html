@@ -1,9 +1,9 @@
 <div class="col-8 mx-auto">
     <div class="card" [ngStyle]="{'background-color':'transparent','border':'none'}">
-      <div class="card-title d-flex justify-content-between align-items-center"[ngStyle]="{'display':'inline-block','margin-bottom':'20px'}" >
+      <div class="mt-3 card-title d-flex justify-content-between align-items-center"[ngStyle]="{'display':'inline-block','margin-bottom':'20px'}" >
           <p [ngStyle]="{'color':'#28688B'}" class="fs-3 m-0">Edit Admin</p>
             <a class="nav-a" [routerLink]="['/admins']" routerLinkActive="''" >
-              <fa-icon [icon]="faLongArrowRight" class=" fs-2 mb-5" ></fa-icon></a>
+              <fa-icon [icon]="faLongArrowRight" [ngStyle]="{'color':'#28688B'}" class=" fs-2 mb-5" ></fa-icon></a>
         </div>
         <div class="container mt-5">
           <div *ngIf="isLoading; else elseForm">
@@ -13,16 +13,13 @@
             <form [formGroup]="adminForm" (ngSubmit)="formsubmit()">
                 <div class="row m-5 my-5">
                     <div class="form-group col-md-6">
-                  <mat-label for="fullname" class="text-light">Full Name</mat-label>
-                  <input type="text" class="form-control" formControlName="fullname" name="fullname" >
+                  <mat-label for="fullname">Full Name</mat-label>
+                  <input type="text" class="form-control" formControlName="fullname" name="fullname" [ngStyle]="{'background-color':'#fff','color':'#28688B'}">
                 </div>
                 <div class="form-group col-md-6">
                 
-                  <mat-label for="group_id" class="text-light">Group</mat-label>
-                   <select type="text" class="px-3 pt-2 form-control" formControlName="group_id" name="group_id" [ngStyle]="{
-                     'background-color':'white',
-                     'height':'40px',
-                     'border-radius':'5px',}" >
+                  <mat-label for="group_id" >Group</mat-label>
+                   <select type="text" class="px-3 pt-2 form-control" formControlName="group_id" name="group_id" [ngStyle]="{'background-color':'#fff','color':'#28688B'}">
    
                        <option *ngFor="let group of groups" [value]="group.id">{{group.name}}</option>
                        
@@ -32,12 +29,12 @@
            </div>  </div>
                 <div class="row m-5 my-5">
                     <div class="form-group col-md-6">
-                  <mat-label for="username" class="text-light">user Name</mat-label>
-                  <input type="text" class="form-control" formControlName="username" name="username">
+                  <mat-label for="username" >user Name</mat-label>
+                  <input type="text" class="form-control" formControlName="username" name="username" [ngStyle]="{'background-color':'#fff','color':'#28688B'}">
                 </div>
                 <div class="form-group col-md-6">
-                  <mat-label for="email" class="text-light">Email</mat-label>
-                  <input type="email" class="form-control" formControlName="email" name="email">
+                  <mat-label for="email" >Email</mat-label>
+                  <input type="email" class="form-control" formControlName="email" name="email" [ngStyle]="{'background-color':'#fff','color':'#28688B'}">
                 </div>
                 </div>            
            

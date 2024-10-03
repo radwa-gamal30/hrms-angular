@@ -76,20 +76,13 @@ export class AttendanceService {
    return this.httpClient.post(`http://127.0.0.1:8000/api/attendance`,inputs);
   }
   delattendance(attendanceId: number) {
-    return this.httpClient.delete(`http://127.0.0.1:8000/api/employees/${attendanceId}`);
+    return this.httpClient.delete(`http://127.0.0.1:8000/api/attendance/${attendanceId}`);
   }
   getMonthlyReport(){
     return this.httpClient.get<reportResponseType>('http://127.0.0.1:8000/api/reports');
   }
-  getReportByMonth(month?:number, year?:number){
-    let params:any = {};
-    if(year){
-      params.year= year.toString();
-    }
-    if(month){
-      params.month= month.toString();
-    }
-    return this.httpClient.get(`http://127.0.0.1:8000/api/reports`,{params});
+  getReportByMonth(month?:any, year?:any){
+    return this.httpClient.get<any[]>(`http://127.0.0.1:8000/api/reports/${month}/${year}`);
   }
   searchAttendanceByname(empName:string,from:any,to:any)
   {

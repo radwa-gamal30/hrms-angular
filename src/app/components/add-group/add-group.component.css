@@ -1,22 +1,24 @@
 
 .logo
 {
-  width: 20%;
+  width: 10%;
 }
 .stroke
 {
-  border: 2px solid #296889;
+  border: 2px solid #76BACE;
   font-size: 13px;
 }
 table tr th
 {
-  background-color: #296889;
+  background-color: #53808e;
   text-align: center;
 }
 .show
 {
-  background-color: #296889;
+  background-color:#4f7986;
+  box-shadow: 10px 10px 10px gainsboro;
   color: white;
+  border: none;
   font-size: 15px;
 }
 td

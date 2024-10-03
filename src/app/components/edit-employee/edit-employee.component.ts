@@ -49,6 +49,8 @@ export class EditEmployeeComponent {
         hire_date: [''],
         salary: ['',],
         department_id: [''],
+        check_in:[''],
+        check_out:[''],
         gender: [''],
         address: [''],
         doa: [''],

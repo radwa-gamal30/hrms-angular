@@ -1,71 +1,63 @@
 <div class="container mt-2 text-light">
-
-
-    <div class="row pt-1 me-5 w-100">
-      <p class="fs-2 mb-5 ms-auto"  [style.color]="'#4883a3'" >Admin Board</p>
+  <div class="logo">
+    <img src="logo.png" class="img-fluid rounded-start">
+  </div>
+    <div class="row pt-5 me-5 w-100">
+      <p class="fs-2 mb-5 text-center title"  [style.color]="'#4883a3'" >Admin Board</p>
     </div>
     <div class="row pt-2 w-100">
+            <div class="col-md-3 mb-3">
+                <mat-card class="p-3 d-flex align-items-center justify-content-center" [style.background-color]="'#225470'">
+                    <mat-card-header>
+                        <fa-icon [icon]="userGroupIcon"></fa-icon>
+                    </mat-card-header>
+                    <mat-card-content class="text-center">
+                        <p class=" title-cart pb-4">Employees</p>
+                        <p class="fs-2">{{counts.totalemployees}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+
           <div class="col-md-3 mb-3">
-            <mat-card class="p-3" [style.background-color]="'#225470'">
-              <mat-card-header class="ms-auto">
-                <fa-icon [icon]="userGroupIcon"></fa-icon>
+            <mat-card class="p-3 card2 d-flex align-items-center justify-content-center" >
+              <mat-card-header>
+                <fa-icon [icon]="doorOpenIcon"></fa-icon>
               </mat-card-header>
-              <mat-card-content class="me-auto text-center">
-                <p class="fs-7">Employees</p>
-                <p class="fs-2">{{counts.totalemployees}}</p>
+              <mat-card-content class="text-center ">
+                <p class="fs-7 title-cart pb-4">Visits</p>
+                <p class="fs-2">{{counts.totalusers}}</p>
               </mat-card-content>
             </mat-card>
           </div>
-    
+
+
           <div class="col-md-3 mb-3">
-            <mat-card class="p-3">
-              <mat-card-header class="ms-auto">
-                <fa-icon [icon]="doorOpenIcon"></fa-icon>
-              </mat-card-header>
-              <mat-card-content class="me-auto text-center ">
-                <p class="fs-7">Visits</p>
-                <p class="fs-2">{{counts.totalusers}}</p>
-              </mat-card-content>
-            </mat-card></div>
-        
-    
-          <div class="col-md-3 mb-3">
-            <mat-card class="p-3" [style.background-color]="'#FFCC6F'">
-              <mat-card-header class="ms-auto">
+            <mat-card class="p-3 d-flex align-items-center justify-content-center" [style.background-color]="'#FFCC6F'">
+              <mat-card-header>
                 <fa-icon [icon]="usersLineIcon"></fa-icon>
               </mat-card-header>
-              <mat-card-content class="me-auto text-center">
-                <p class="fs-7">Groups</p>
+              <mat-card-content class="text-center">
+                <p class="fs-7 title-cart pb-4">Groups</p>
                 <p class="fs-2">{{counts.totalgroups}}</p>
               </mat-card-content>
             </mat-card>
           </div>
-    
+
           <div class="col-md-3 mb-3">
-            <mat-card class="p-3">
-              <mat-card-header class="ms-auto">
+            <mat-card class="p-3 card4 d-flex align-items-center justify-content-center">
+              <mat-card-header class="">
                 <fa-icon [icon]="fileInvoice"></fa-icon>
               </mat-card-header>
-              <mat-card-content class="me-auto text-center">
-                <p class="fs-7">Reports</p>
+              <mat-card-content class="text-center">
+                <p class="fs-7 title-cart pb-4">Reports</p>
                 <p class="fs-2">{{counts.totalreports}}</p>
               </mat-card-content>
             </mat-card>
           </div>
-      
-    </div>
-    <div class="row p-5 w-100 d-flex justify-content-between align-items-center lh-base">
-    <div class="row justify-content-between align-items-center"><div class="col-md-5 fs-2 text-dark fw-bold ms-3">Enjoy Your system Management Dashboard.</div>
-      <div class="onb col-md-3 mt-5"> <img src="./assets/images/onboarding.png"></div></div>
-    
-      <div class="row justify-content-between mt-5">
-        <div class="onb col-md-3 mt-5 "> <img [ngStyle]="{'width':'500px','height':'100%','padding-right':'100px'}" src="./assets/images/onb(2).png"></div>
-        <div class="col-md-5 fs-5 text-dark fw-600 ms-3 pt-5"><p>✔ Human Resource Management (HRM) is a strategic approach to managing employees to achieve better organizational performance. </p><p>✔ It aims to attract, manage, and retain employees who contribute to the company’s success,</p> <p>✔ ensuring their alignment with the organization’s strategic goals and culture.</p><p>✔ HRM encompasses various functions, including recruitment, compensation, and employee development, to support and engage the workforce effectively.</p></div>
-      </div>
-     
 
     </div>
-
-    
-
+    <div class="row p-5 w-100 d-flex justify-content-center align-items-center lh-base">
+       <div class="col-md-8 text-dark fw-bold content-head">Enjoy Your system Management Dashboard</div>
+       <div class="col-md-4 mt-5"> <img src="./assets/images/onboarding.png"></div>
+    </div>
 </div>

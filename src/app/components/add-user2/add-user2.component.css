@@ -5,14 +5,15 @@
     align-items: center;
     justify-content: center;
     width: 800px;
-    height: 900px;
+    height: 800px;
 }
 form{
     padding: 20px;
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    background-color: #28688B;
+    border: 1px solid #28688B;
+    background-color: #fff;
 }
 h1{
     margin-top: 10px;
@@ -20,12 +21,13 @@ h1{
     margin-bottom: 100px;
     color: #28688B;
 }
+mat-label{
+    color: #28688B;
+    font-weight: 600;
+}
 .logo
 {
-    margin-left: 200px;
-    height: 100px;
-    width: 200px;
-
+ width: 10%;
 }
 .btn-back{
     border: 1px solid #FFF;
@@ -44,11 +46,7 @@ h1{
 
 }
 
-label{
-    font-size: 20px;
-    padding-bottom: 12px;
 
-}
 input, select, button{
     height: 40px;}
 .btn{
@@ -57,5 +55,12 @@ input, select, button{
     font-size: 20px;
     font-weight: 400;
     color: white;
+    background-color: #28688B;
     border-color: white;
+}
+.btn:hover{
+    background-color: 53808e;
+}
+.icon{
+    font-size: 5rem;
 }

@@ -1,25 +1,25 @@
 import { ShowEmployeeComponent } from './components/show-employee/show-employee.component';
 import { Routes } from '@angular/router';
 import { AddGroupComponent } from './components/add-group/add-group.component';
-import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
 import { AddUser1Component } from './components/add-user1/add-user1.component';
 import { AddUser2Component } from './components/add-user2/add-user2.component';
-import { GeneralSettingsComponent } from './components/general-settings/general-settings.component';
-import { LoginComponent } from './components/login/login.component';
-import { SalaryReportComponent } from './components/salary-report/salary-report.component';
 import { EditAttendaceComponent } from './components/edit-attendace/edit-attendace.component';
 import { EditReportComponent } from './components/edit-report/edit-report.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
-import { AttenedanceDepartureComponent } from './components/attenedance-departure/attenedance-departure.component';
 import { EditEmployeeComponent } from './components/edit-employee/edit-employee.component';
 import { EditAdminComponent } from './components/edit-admin/edit-admin.component';
-import { AddAttendanceComponent } from './components/add-attendance/add-attendance.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import { AdminsComponent } from './components/admins/admins.component';
 import { ShowAdminComponent } from './components/show-admin/show-admin.component';
 import { ShowAttendaceComponent } from './components/show-attendace/show-attendace.component';
-import { EditWeekendComponent } from './components/weekend/edit-weekend.component';
 import { EditHolidaysComponent } from './components/edit-holidays/edit-holidays.component';
+import { EditWeekendComponent } from './components/edit-weekend/edit-weekend.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { GeneralSettingsComponent } from './components/general-settings/general-settings.component';
+import { AddHolidayComponent } from './components/add-holiday/add-holiday.component';
+import { AttenedanceDepartureComponent } from './components/attenedance-departure/attenedance-departure.component';
+import { AddAttendanceComponent } from './components/add-attendance/add-attendance.component';
+import { SalaryReportComponent } from './components/salary-report/salary-report.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'homePage',pathMatch:'full'},

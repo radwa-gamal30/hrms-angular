@@ -1,4 +1,5 @@
-<div class="container">
+<div class="ms-5">
+  <div class="col-md-11 main-data pt-3">
   <div class="logo">
     <img src="logo.png" class="img-fluid rounded-start">
   </div>
@@ -28,20 +29,19 @@
             <input type="checkbox" (change)="toggleSelectAll($event, i)" />
           </td>
           <td>
-            {{ permission.get('page')?.value }} <!-- Display page value -->
-            <input type="hidden" formControlName="page" /> <!-- Hidden input for page -->
+            {{ permission.get('page')?.value }}
           </td>
-          <td><input type="checkbox" formControlName="add" /></td>
-          <td><input type="checkbox" formControlName="remove" /></td>
-          <td><input type="checkbox" formControlName="update" /></td>
-          <td><input type="checkbox" formControlName="show" /></td>
+          @for (permission of allPermissions; track $index) {
+          <td><input type="checkbox" formControlName="{{permission.name}}" [value]="permission.id"/></td>
+          }
         </tr>
       </tbody>
     </table>
 
-    <div class="submit m-auto w-25">
-      <button type="submit" class="btn show w-100" [disabled]="groupPriviliages.invalid">Submit</button>
+    <div class="submit w-25 mx-auto">
+      <button type="submit" class="btn show w-50" [disabled]="groupPriviliages.invalid">Submit</button>
     </div>
-  </form>
 
+</form>
+</div>
 </div>

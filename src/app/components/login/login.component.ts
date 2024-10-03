@@ -34,7 +34,7 @@ export class LoginComponent {
       if (response.status && response.token) {
           localStorage.setItem('token', response.token);
           localStorage.setItem('name', response.full_name); 
-          console.log("login done")
+          this.router.navigate(['homepage']);
       } else {
           alert('Check your Email or Password');
       }

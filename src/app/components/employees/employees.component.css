@@ -4,7 +4,7 @@ body
 }
 .logo
 {
-  width: 20%;
+  width: 10%;
 }
 .title
 {
@@ -38,7 +38,7 @@ form
 }
 .show
 {
-  background-color: #296889;
+  background-color: #53808e;
   color: white;
   font-size: 15px;
 }
@@ -58,9 +58,13 @@ thead th
   background-color: #296889;
   color: white;
 }
-i
+td{
+  font-size: 10px;
+  font-weight: 500;
+}
+i, .delete
 {
-  /* font-size: 30px; */
+ 
   cursor: pointer;
 }
 

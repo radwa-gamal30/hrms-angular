@@ -31,7 +31,7 @@ export class EditAdminComponent {
 adminForm!:FormGroup;
 adminId!:number;
 groups!:any;
-isLoading:boolean=true;
+isLoading:boolean=false;
 loadingTitle="loading";
 errors:any={}
 constructor(private route:ActivatedRoute,private adminService :AdminService,private fb: FormBuilder, private router:Router){
@@ -59,7 +59,7 @@ loadGroup(){
 loadAdmin(){
   this.adminService.getAdmin(this.adminId).subscribe({
     next: (res) => {
-      this.isLoading=false;
+     
       this.adminForm.patchValue({
         fullname: res.user.fullname,
         username: res.user.username,
@@ -73,20 +73,18 @@ loadAdmin(){
 
 formsubmit() {
   if(this.adminForm.valid){
-    this.isLoading=true;
-    this.loadingTitle="saving";
     this.adminService.updateAdmin(this.adminId,this.adminForm.value).subscribe({
       next: (res)=>{
         console.log('user updated successfully',res);
         alert('user updated successfully');
         this.router.navigate(['/admins']);
-        this.isLoading=false;
+      
       },
       error:(err)=>{
         this.errors=err.error.errors;
         console.log('user updating failed !',err);
         alert('user updating failed, try later');
-        this.isLoading=false;
+     
       }
     })
   }

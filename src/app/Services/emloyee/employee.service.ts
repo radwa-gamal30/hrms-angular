@@ -13,7 +13,8 @@ export interface employeeResponse{
   department:department;
   gender: any;
   doa:Date | undefined;
- 
+  check_in:string;
+  check_out:string;
   }
   export interface department{
     id: number;
@@ -38,7 +39,7 @@ export class EmployeeService {
     return this.httpClient.get(`http://127.0.0.1:8000/api/department`);
   }
   setEmployees(inputs:any){
-    return this.httpClient.post(`http://127.0.0.1:8000/api/employees`,inputs);
+    return this.httpClient.post(`http://127.0.0.1:8000/api/employees`,inputs,{headers:{'Content-Type':'application/json'}});
   }
   getEmployees(){
     return this.httpClient.get<employeeResponseType>(`http://127.0.0.1:8000/api/employees`);

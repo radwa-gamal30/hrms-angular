@@ -6,19 +6,11 @@ mat-toolbar{
 }
 .menu-btn{
    
-  display: flex;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border: none;
-    outline: none;
 
-}
-mat-icon{
-    margin-bottom: 5px;
-    font-size: 30px;
-   width: 50px;
-   height: 40px;  
-   color:white;
+   
 }
 
 mat-sidenav{
@@ -39,27 +31,22 @@ mat-sidenav-container{
 mat-sidenav, mat-sidenav-content{
     transition: all 500ms ease-in-out;
 }
-.login-btn{
-    border: 1px solid #FFF;
+.logout-btn{
+    border: none;
     font-size: 18px;
     width: 85px;
     height: 40px; 
-  
-    border-radius: 10px;
     color: #FFF;
     background-color: transparent;
     transition: all 0.2s ease-in-out;
    
 
 }
-.login-btn:hover{
+.logout-btn:hover{
     border: none;
     color: black;
 
 }
 .user{
     color: #fff;
-}
-.nav-a{
-    text-decoration: none;
 }

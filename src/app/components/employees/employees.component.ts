@@ -28,7 +28,7 @@ export class EmployeesComponent {
   }  
   employees!:employeeResponse[];
   dataSource=new MatTableDataSource<employeeResponse>([]);
-  displayedColumns: string[] = ['id','name', 'phone','salary','hire_date','ssn','address','department_name','gender','doa','actions'];
+  displayedColumns: string[] = ['id','name', 'phone','salary','hire_date','ssn','check_in','check_out','address','department_name','gender','doa','actions'];
   onboard:any='./assets/images/onboard(1).png';
   isLoading: boolean=false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -58,15 +58,13 @@ export class EmployeesComponent {
      
       this.employeeService.deleteEmployee(employeeId).subscribe({
         next: (res:any) => {
-          // this.snackbar.open('Employee deleted successfully', 'Close', { duration: 3000 });
           this.getEmployeeList(); 
-          alert(res.message);
+          this.snackbar.open('Employee deleted successfully', 'Close', { duration: 3000 });
           this.router.navigate(['/employees']);
         },
         error: (err) => {
-          alert('Error deleting employee');
           console.error('Error deleting employee', err);
-          // this.snackbar.open('Failed to delete employee', 'Close', { duration: 3000 });
+          this.snackbar.open('Failed to delete employee', 'Close', { duration: 3000 });
         }
       });
     }
