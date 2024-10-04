@@ -13,14 +13,17 @@
             <div class="mb-3 pt-5 pb-3 form-group">
               <label class=" mb-0 form-label"for="email">Email:</label>
               <input type="email" class="form-control" id="email" [(ngModel)]="email"  placeholder="Please Enter Your User Name" name="email" required>
+              <div *ngIf="errorMessage" class="error-message  m-auto fw-bold">{{ errorMessage }}</div>
+
             </div>
             <div class="mb-3 pb-3">
               <label for="password" class=" mb-0 form-label">Password:</label>
               <input type="password" class="form-control" placeholder="Please Enter Your Password" id="password" [(ngModel)]="password" name="password" required>
+              <div *ngIf="errorMessage" class="error-message  m-auto fw-bold ">{{ errorMessage }}</div>
+
             </div>
             <button type="submit" class="btn w-50 m-auto d-block text-white">Login</button>
           </form>
-          <div *ngIf="errorMessage" class="error-message  m-auto">{{ errorMessage }}</div>
         </div>
       </div>
     </div>

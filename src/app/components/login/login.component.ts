@@ -20,12 +20,12 @@ export class LoginComponent {
 
   async onSubmit() {
     if (!this.email) {
-      this.errorMessage = "Email is required.";
+      this.errorMessage = "*Email is required.";
       return;
   }
 
   if (!this.password) {
-      this.errorMessage = "Password is required.";
+      this.errorMessage = "*Password is required.";
       return;
   }
 
@@ -36,11 +36,11 @@ export class LoginComponent {
           localStorage.setItem('name', response.full_name); 
           this.router.navigate(['homepage']);
       } else {
-          alert('Check your Email or Password');
+          alert('*Check your Email or Password');
       }
   },
   (error:any) => {
-      this.errorMessage = "Your passsword or email is incorrect";
+      this.errorMessage = "*Your passsword or email is incorrect";
   }
  );
   }
