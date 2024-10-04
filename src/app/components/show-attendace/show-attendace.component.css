@@ -4,7 +4,7 @@ body
 }
 .logo
 {
-  width: 20%;
+  width: 10%;
 }
 .title
 {
@@ -25,7 +25,7 @@ body
 }
 form
 {
-  width: 36%;
+  width: 50%;
 }
 .month,.year,.submit
 {
@@ -73,10 +73,10 @@ td
   font-size: 30px;
 }
 
-.container
+.card
 {
   box-shadow: 10px 10px 10px gainsboro;
-  border: 2px solid #0B5E84 !important;
+  border: 1px solid #0B5E84 !important;
   background-color: #FFF;
   padding: 20px;
 }

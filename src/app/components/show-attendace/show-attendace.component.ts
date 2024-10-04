@@ -8,7 +8,7 @@ import { ActivatedRoute, NavigationStart, Router, RouterModule } from '@angular/
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faLongArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-edit-attendace',
@@ -18,7 +18,7 @@ import { faLongArrowRight } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './show-attendace.component.css'
 })
 export class ShowAttendaceComponent {
-  faLongArrowRight=faLongArrowRight;
+  faLongArrowRight=faArrowRight;
   fullText: string = 'Edit Attendance and departure';
   displayedText: string = '';
   typingSpeed: number = 100; // Speed of typing in milliseconds
@@ -29,8 +29,7 @@ export class ShowAttendaceComponent {
   updatedattendnace!:any;
   // employees!:any;
   errors: any = {};   
-  isLoading:boolean=true;
-  loadingTitle:string='Loading';
+
   constructor(private route:ActivatedRoute,private attendanceService: AttendanceService,private fp: FormBuilder,private router:Router)
   {
     this.attendnaceForm=this.fp.group({
@@ -51,7 +50,6 @@ export class ShowAttendaceComponent {
   attendanceLoad(){
     this.attendanceService.getAttendance(this.attendnaceId).subscribe({
       next:(res)=>{
-        this.isLoading=false;
         console.log(res);
         this.attendnaceForm.patchValue(
           {
@@ -69,7 +67,6 @@ export class ShowAttendaceComponent {
         );
       },
       error: (err:any)=>{
-        this.isLoading=false;
         console.log(err);
         this.errors=err.error.errors;
         this.displayedText = 'Error loading attendnace details';

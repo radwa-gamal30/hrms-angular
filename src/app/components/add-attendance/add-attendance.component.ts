@@ -8,17 +8,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { LoaderComponent } from '../loader/loader.component';
+import { MatInputModule } from '@angular/material/input';
 
 
 @Component({
   selector: 'app-add-attendance',
   standalone: true,
   templateUrl: './add-attendance.component.html',
-  imports: [RouterModule, CommonModule, FormsModule, LoaderComponent,FontAwesomeModule],
+  imports: [RouterModule, CommonModule, FormsModule, LoaderComponent,FontAwesomeModule,MatInputModule],
   styleUrl: './add-attendance.component.css',
 })
 export class AddAttendanceComponent {
-  faArrowRotateForward=faArrowRight;
+  faLongArrowRight=faArrowRight;
   employees:any[]=[];
   selectedEmployeeId: number = 0;
   check_in: string = '';  
