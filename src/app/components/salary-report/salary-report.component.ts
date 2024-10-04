@@ -24,7 +24,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SalaryReportComponent {
   month: number | null = null;
-  months:any[]=['Saturday','Sunday','Monday','Tuesday','Wedensday','Thursday','Friday'];
+  months:any[]=['January','February','March','April','May','June','July','August','September','October','November','December'];
   year: number | null = null;
   years:number[]=[];
   errorMessage: string = '';
