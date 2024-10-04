@@ -33,8 +33,6 @@ export class EditEmployeeComponent {
   employeeForm!:FormGroup;
   departments:any=[];
   errors:any={};
-  isLoading:boolean=true;
-  loadingTitle="loading";
   constructor(private route:ActivatedRoute,
     private fb: FormBuilder,
     private employeeService : EmployeeService,
@@ -81,13 +79,12 @@ export class EditEmployeeComponent {
     this.employeeService.getEmployee(this.employeeId).subscribe({
     next: ( res)=>{
       console.log(res);
-     this.isLoading=false;
         this.employeeForm.patchValue(res.employee);
 
       },
     error:  (err)=>{
       console.log(err);
-      this.isLoading=false;
+    
       alert('Error loading attendnace details');
       this.errors=err.error.errors;
      
@@ -97,14 +94,12 @@ export class EditEmployeeComponent {
   submitForm(){
 
   if(this.employeeForm.valid){
-    this.isLoading=true;
-    this.loadingTitle="saving";
     this.employeeService.updateEmployee(this.employeeId,this.employeeForm.value).subscribe({
       next: (res) => {
         console.log('Employee updated successfully:', res);
         this.snackBar.open('employee has been edited successfully ✔','close',{duration: 3000});
         this.router.navigate(['/employees']);
-        this.isLoading=false;
+       
 
         // alert('Employee updated successfully.');
         this.router.navigate(['/employees']);
@@ -113,7 +108,6 @@ export class EditEmployeeComponent {
         this.errors=err.error.errors;
         console.error('Error updating employee:', err);
         this.snackBar.open('error occured , try again !','close',{duration: 3000});
-        this.isLoading=false;
         
        }
     });

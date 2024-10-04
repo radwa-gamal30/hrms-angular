@@ -39,7 +39,7 @@ form
 }
 .show
 {
-  background-color: #53808e;
+  background-color:#28688B;
   color: white;
   font-size: 15px;
   /* margin-left: 100px; */
@@ -48,7 +48,7 @@ form
 {
   cursor: pointer;
   color: #fff;
-  background-color: #53808e;
+  background-color:#28688B;
   padding: 10px;
   right: 0;
   margin: 1px;
@@ -78,7 +78,7 @@ td
 .print
 {
   font-size: 30px;
-  color: #53808e;
+  color:#28688B;
 }
 
 table {

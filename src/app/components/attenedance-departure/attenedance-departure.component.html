@@ -20,7 +20,7 @@
             </div>
 
             <div class="submit ms-5 my-3 col-md-2">
-              <button type="button" class="btn show w-25" (click)="showResult(searchVal.value,from.value,to.value)">Show</button>
+              <button type="button" class="btn show w-25" (click)="showResult(searchVal.value,from.value,to.value)">Filter</button>
             </div>
           </div>
           
@@ -31,7 +31,7 @@
           </div>
         </div>
        
-          <div class="mt-3 col-md-4 me-auto search d-flex">
+          <div class="mt-3 col-md-4 mx-auto search d-flex justify-content-center ">
               <input matInput (keyup)="applyFilter($event)" type="search" class="form-control stroke w-100" #searchVal placeholder="employee name" #input>           
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>

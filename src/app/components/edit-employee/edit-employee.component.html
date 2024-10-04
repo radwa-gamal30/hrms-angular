@@ -6,10 +6,7 @@
               <fa-icon [icon]="faLongArrowRight" class=" fs-2 mb-5" ></fa-icon></a>
         </div>
         <div class="container ">
-          <div *ngIf="isLoading; else elseForm">
-            <app-loader :title="loadingTitle"></app-loader>
-          </div>
-          <ng-template #elseForm>
+       
             <form class="rounded" [formGroup]="employeeForm" (ngSubmit)="submitForm()">
               <div class="row m-2">
                 <div class="form-group col-md-6">
@@ -94,7 +91,6 @@
                <div class="d-flex justify-content-center" ><button type="submit" class="w-25 btn">update</button></div>
              
               </form>
-          </ng-template>
         </div>
     </div>
 </div>

@@ -1,3 +1,12 @@
+.logo
+{
+  width: 10%;
+}
+.card-title
+{
+  font-size: 2rem;
+  text-transform: capitalize;
+}
 .form-container{
     width: 500px;
     border-radius: 10px;
@@ -19,7 +28,7 @@ mat-label{
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #5f7a82;
+    background-color:#28688B;
     color: white;
     font-size: 16px;
     margin: 30px;
