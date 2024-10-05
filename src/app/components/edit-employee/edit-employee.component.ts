@@ -79,7 +79,20 @@ export class EditEmployeeComponent {
     this.employeeService.getEmployee(this.employeeId).subscribe({
     next: ( res)=>{
       console.log(res);
-        this.employeeForm.patchValue(res.employee);
+      
+        this.employeeForm.patchValue({
+          name:res.employee.name,
+          ssn:res.employee.ssn,
+          phone:res.employee.phone,
+          hire_date:res.employee.hire_date,
+          salary:res.employee.salary,
+          department_id:res.employee.department_id,
+          check_in:res.employee.check_in.slice(0,5),
+          check_out:res.employee.check_out.slice(0,5),
+          gender:res.employee.gender,
+          address:res.employee.address,
+          doa:res.employee.doa,
+        });
 
       },
     error:  (err)=>{
@@ -104,7 +117,7 @@ export class EditEmployeeComponent {
         // alert('Employee updated successfully.');
         this.router.navigate(['/employees']);
       },
-      error: (err) => {
+      error: (err:any) => {
         this.errors=err.error.errors;
         console.error('Error updating employee:', err);
         this.snackBar.open('error occured , try again !','close',{duration: 3000});

@@ -28,6 +28,7 @@ export interface AttendanceResponse{
   employee_id: number;
   weekend_id: number;
   holiday_id: number;
+  general_settings_id:number;
   status: string;
   check_in: string;
   check_out: string;
@@ -35,8 +36,6 @@ export interface AttendanceResponse{
   hours: any;
   created_at: string;
   updated_at: string;
-  bonus_value:number;
-  deduction_value:number;
   employee: Employee; 
 
 }

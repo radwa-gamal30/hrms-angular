@@ -26,14 +26,13 @@ export class EditAttendaceComponent {
   displayedText: string = '';
   typingSpeed: number = 100; // Speed of typing in milliseconds
   
-  
+  generalSteetingId!:number;
   attendnaceId!:number;
   attendnaceForm!:FormGroup;
   updatedattendnace!:any;
   // employees!:any;
   errors: any = {};   
-  isLoading:boolean=true;
-  loadingTitle:string='Loading';
+  
   constructor(private route:ActivatedRoute,
     private attendanceService: AttendanceService,
     private fp: FormBuilder,
@@ -46,8 +45,6 @@ export class EditAttendaceComponent {
       department:[''],
       check_in:[''],
       check_out:[''],
-      bonus_value:[''],
-      deduction_value:[''],
       date:[''],
       hours:[''],
       status:['']
@@ -59,25 +56,25 @@ export class EditAttendaceComponent {
     this.attendanceService.getAttendance(this.attendnaceId).subscribe({
       next:(res)=>{
         console.log(res);
-        this.isLoading=false;
-        this.attendnaceForm.patchValue(
+        if (res.attendance.employee_id==res.attendance.employee.id)
+       { this.attendnaceForm.patchValue(
           {
             employee_id: res.attendance.employee_id,         
             name: res.attendance.employee.name,         
-            department: res.attendance.employee.department.department_name,         
-            check_in: res.attendance.check_in.substring(0,5),         
-            check_out: res.attendance.check_out.substring(0,5),   
-            bonus_value:res.attendance.bonus_value,       
-            deduction_value:res.attendance.deduction_value,             
+            department: res.attendance.employee.department.department_name,        
+            check_in: res.attendance.check_in.slice(0,5),         
+            check_out: res.attendance.check_out.slice(0,5),            
             date: res.attendance.date,         
             hours: res.attendance.hours,         
             status: res.attendance.status,       
              }
-        );
+        );}else {
+          this.snackBar.open('error in attendance', 'Close', { duration: 3000 });
+
+        }
       },
       error: (err:any)=>{
         console.log(err);
-        this.isLoading=false;
         this.errors=err.error.errors;
         this.displayedText = 'Error loading attendnace details';
         setTimeout(this.typeWriter, 2000); 
@@ -89,21 +86,14 @@ export class EditAttendaceComponent {
     if(this.attendnaceForm.valid){
       this.attendanceService.updateAttendance(this.attendnaceId,this.attendnaceForm.value).subscribe({
         next: (res:any) => {
-          // alert('Attendance updated successfully:')
           console.log('Attendance updated successfully:', res);
-          this.snackBar.open('employee has been edited successfully ✔','close',{duration: 3000});
-          this.isLoading=false;
+          this.snackBar.open('attendance has been edited successfully ✔','close',{duration: 3000});
           this.router.navigate(['/attendance-departure']);
         },
         error: (err:any) => {
           this.errors=err.error.errors;
-          console.error(this.errors);
-          this.isLoading=false;
-          // alert('Error updating attendnace details');
-          this.snackBar.open('Failed to edit holiday', 'Close', { duration: 3000 });
+          this.snackBar.open('Failed to edit attendance', 'Close', { duration: 3000 });
 
-          this.displayedText = 'Error updating attendnace details';
-          setTimeout(this.typeWriter, 2000);
         }
       });
     }
