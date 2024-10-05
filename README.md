@@ -28,3 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## add product video
 [HrDemo.zip](https://github.com/user-attachments/files/17264568/HrDemo.zip)
+
+## BackEnd Repository
+https://github.com/radwa-gamal30/hr-laravel
