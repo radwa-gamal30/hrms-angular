@@ -4,14 +4,14 @@
 }
 
 
+.logo img{
+  width: 10%;
+}
 
 img {
-  width: 400px;
+  width: 75%;
   height: 100%;
 
-}
-.logo{
-  width: 10%;
 }
 mat-card {
   border-radius: 10px;
@@ -91,12 +91,12 @@ table {
 }
 .title-cart
 {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: bolder;
 }
 .content-head
 {
   text-shadow: 0px 5px 0px gray;
-  font-size: 4rem;
+  font-size: 3rem;
   color: gainsboro !important;
 }
