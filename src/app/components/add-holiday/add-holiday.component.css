@@ -36,3 +36,6 @@ table.custom-thead {
   color: white; 
   
 }
+.text-danger{
+  cursor: pointer;
+}

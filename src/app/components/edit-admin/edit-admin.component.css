@@ -27,20 +27,23 @@ h1{
   margin-top: 10px;
   margin-bottom: 100px;
 }
-.companylogo{
-  margin-left: 200px;
-  height: 100px;
-  width: 200px;
-}
+
 mat-label{
   color: #28688B;
   font-weight: 600;
 }
-button{
- 
-  font-size: 20px;
-  font-weight: 400;
+.form-container button, .btn {
+   
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5f7a82;
   color: white;
-  border-color: white;
-
+  font-size: 16px;
+  margin: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+.form-container button:hover, .btn:hover {
+  background-color: #48616d;
 }

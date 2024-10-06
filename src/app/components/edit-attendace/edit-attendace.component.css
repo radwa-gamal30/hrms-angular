@@ -84,12 +84,19 @@ form
   font-weight: 600;
 
 }
-button
-{
-  border:1px solid #979696;
+.form-container button, .btn {
+   
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0B5E84;
+  color: white;
+  font-size: 16px;
+  margin: 30px;
+  cursor: pointer;
+  text-align: center;
 }
-button:hover
-{
-  border:1px solid #369bd2;
+.form-container button:hover, .btn:hover {
+  background-color: #48616d;
 }
 

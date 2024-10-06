@@ -1,9 +1,6 @@
-<div class="m-auto">
-    <div class="logo ms-5">
-        <img src="logo.png" class="img-fluid rounded-start">
-      </div>
-<div class="mt-3 mx-5 card-title d-flex justify-content-between align-items-center"[ngStyle]="{'margin-bottom':'20px'}" ><p [ngStyle]="{'display':'inline-block','color':'#28688B'}" class="fs-3 m-0">Edit Holiday</p><a class="nav-a" [routerLink]="['/addholiday']" routerLinkActive="''" >
-    <fa-icon [icon]="faLongArrowRight" class=" fs-2 mb-5" [ngStyle]="{'color':'#28688B'}" ></fa-icon></a>
+<div class="col-8 mx-auto">
+<div class="mt-3 col-md-8 mx-auto d-flex justify-content-between align-items-center"[ngStyle]="{'margin-bottom':'20px'}" ><p [ngStyle]="{'display':'inline-block','color':'#28688B'}" class="fs-3 m-0">Edit Holiday</p><a class="nav-a" [routerLink]="['/addholiday']" routerLinkActive="''" >
+    <fa-icon [icon]="faLongArrowRight" class=" fs-3 mb-5" [ngStyle]="{'color':'#28688B'}" ></fa-icon></a>
 </div>
     <div class="form-container mx-auto rounded">
         <form [formGroup]="editForm" (ngSubmit)="EditHoliday(holidayId)" class="w-50 my-5 d-flex flex-column">

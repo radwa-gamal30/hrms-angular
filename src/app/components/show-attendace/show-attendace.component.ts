@@ -8,7 +8,7 @@ import { ActivatedRoute, NavigationStart, Router, RouterModule } from '@angular/
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faLongArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-edit-attendace',
@@ -18,7 +18,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
   styleUrl: './show-attendace.component.css'
 })
 export class ShowAttendaceComponent {
-  faLongArrowRight=faArrowRight;
+  faLongArrowRight=faLongArrowRight;
   fullText: string = 'Edit Attendance and departure';
   displayedText: string = '';
   typingSpeed: number = 100; // Speed of typing in milliseconds
